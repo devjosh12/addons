@@ -1,0 +1,221 @@
+/*=============================================
+=            Variables
+=============================================*/
+
+/*----------  General Colors  ----------*/
+$color-black:       #20292a !default;
+$color-black--text: #5b5b5b;
+$color-white:       #fff !default;
+$color-grey:        #f0f0f0 !default;
+$color-border:      rgba($color-black, 0.2) !default;
+$color-hover:       rgba($color-black, 0.03) !default;
+
+/*----------  Brand Colors  ----------*/
+$color-brand-primary:       #0090de !default;
+$color-brand-primary--dark: #484848 !default;
+$color-brand-accent:        #f7256c !default;
+$color-brand-white:  $color-grey !default;
+
+/*----------  Animation Properties  ----------*/
+
+$animation-easing: ease-out !default;
+$animation-duration: 0.35s !default;
+$animation-delay: 0.2s !default;
+$animation-easing-max-height: cubic-bezier(0, 1, 0, 1) !default;
+
+/*----------  Subsection comment block  ----------*/
+
+$z-index-header: 10 !default;
+
+/*----------  Dimensions  ----------*/
+$dimen-content-width: 1200px !default;
+$dimen-unit:          6px !default;
+$dimen-padding:       $dimen-unit * 2 !default;
+$dimen-gutter:        $dimen-unit * 2 !default;
+
+$shadow:              0 1px 4px 2px rgba($color-black, 0.03) !default;
+$border:              $color-border 1px solid !default;
+$border-radius: 3px !default;
+
+/*----------  Font Variables  ----------*/
+
+// Base font styles
+$font-base-family:             "Helvetica Neue", Helvetica, sans-serif !default;
+$font-base-size:               14px !default;
+$font-base-weight:             300 !default;
+$font-base-height:             1.5 !default;
+
+$base-font-size--small: 12px;
+
+$font-top-offset: 0 !default;
+$font-bottom-offset: 0 !default;
+
+// Links styles
+$font-link-family:             $font-base-family !default;
+$font-link-weight:             normal !default;
+$font-link-size:               $font-base-size !default;
+
+// Heading Styles
+$font-heading-family:          $font-base-family !default;
+$font-heading-weight:          normal !default;
+$font-heading-size--primary:   32px !default;
+$font-heading-size--secondary: 24px !default;
+$font-heading-size:            18px !default;
+$font-heading-size--small:     24px !default;
+
+/*----------  MeBox  ----------*/
+
+$mebox-photo-size: 24px !default;
+$mebox-color: $color-brand-primary !default;
+$mebox-color-hover: $color-white !default;
+$mebox-padding-top: 5px !default;
+$mebox-padding-bottom: 0 !default;
+$mebox-item-background: none !default;
+$mebox-item-background-hover: rgba($color-black, 0.07) !default;
+
+/*----------  Header  ----------*/
+
+$header-height:           60px !default;
+$header-padding:          6px !default;
+$header-background-color: $color-white !default;
+$header-logo-max-width:   200px !default;
+$header-logo-max-height:  $header-height - $header-padding * 2 !default;
+$header-hamburger-size:   24px !default;
+$header-hamburger-padding: 0px !default;
+$header-hamburger-color: $color-brand-primary !default;
+$header-hamburger-background: $color-grey !default;
+$header-hamburger-stroke-size: 1px !default;
+$header-hamburger-stroke-width: $header-hamburger-size !default;
+$header-hamburger-background-radius: $border-radius !default;
+$header-hamburger-stroke-radius: 0px !default;
+$header-is-absolute-nav: false !default;
+$header-has-fixed-height: true !default;
+$header-nav-max-height: 500px !default;
+$header-border-top: 5px solid $color-brand-accent !default;
+$header-border-bottom: 1px solid $color-brand-primary !default;
+$header-border-left: none !default;
+$header-border-right: $header-border-left !default;
+$header-box-shadow: $shadow !default;
+$header-mebox-color: $mebox-color !default;
+$header-mebox-color-hover: $mebox-color-hover !default;
+$header-mebox-padding-top: $mebox-padding-top !default;
+$header-mebox-padding-bottom: $mebox-padding-bottom !default;
+$header-mebox-photo-size: $mebox-photo-size !default;
+$header-mebox-item-background: $mebox-item-background !default;
+$header-mebox-item-background-hover: $mebox-item-background-hover !default;
+
+$button-max-width: 360px;
+
+
+/*----------  Navigation  ----------*/
+
+$navigation-background-color: $color-brand-primary !default;
+$navigation-background: $color-brand-primary !default;
+$navigation-color-default: $color-white !default;
+$navigation-item-font-size: $font-base-size !default;
+$navigation-item-padding-horizontal: 12px !default;
+$navigation-item-padding-vertical: 0 !default;
+$navigation-item-height: 36px !default;
+$navigation-item-font-weight: $font-base-weight !default;
+$navigation-item-divider-width: 2px !default;
+$navigation-item-divider-height: $navigation-item-height / 2 !default;
+$navigation-item-divider-color: rgba($color-white, 0.2) !default;
+$navigation-item-divider-margin: 12px !default;
+$navigation-item-top-radius: 0 !default;
+$navigation-item-bottom-radius: 0 !default;
+
+/*----------  Body  ----------*/
+
+$frame-background-image: !default;
+$frame-background-color: $color-brand-white !default;
+$frame-background-repeat: no-repeat !default;
+$frame-background-size: cover !default;
+$frame-background-position: center center !default;
+$frame-content-padding-vertical: 12px !default;
+$frame-content-padding-horizontal: 0 !default;
+$frame-content-padding: $frame-content-padding-vertical $frame-content-padding-horizontal !default;
+$frame-details-padding-vertical: 0 !default;
+$frame-details-padding-horizontal: 0 !default;
+$frame-details-padding: $frame-details-padding-vertical $frame-details-padding-horizontal !default;
+$frame-stick-footer: true !default;
+
+/*----------  Content  ----------*/
+
+$content-padding-horizontal: 0 !default;
+$content-padding-vertical: 0 !default;
+$content-padding-left: $content-padding-horizontal !default;
+$content-padding-right: $content-padding-horizontal !default;
+$content-padding-top: $content-padding-vertical !default;
+$content-padding-bottom: $content-padding-vertical !default;
+$content-background-color: $color-white !default;
+
+/*----------  Crumbs  ----------*/
+
+$crumbs-padding-horizontal: 0 !default;
+$crumbs-padding-vertical: 0 !default;
+$crumbs-padding-left: $crumbs-padding-horizontal !default;
+$crumbs-padding-right: $crumbs-padding-horizontal !default;
+$crumbs-padding-top: $crumbs-padding-vertical !default;
+$crumbs-padding-bottom: $crumbs-padding-vertical !default;
+$crumbs-background: none !default;
+$crumbs-line-height: 20px !default;
+
+/*----------  Footer  ----------*/
+
+$footer-background-color: $color-grey !default;
+
+/*----------  Lists  ----------*/
+
+$list-title-size: $font-heading-size !default;
+$list-text-size: $font-base-size !default;
+$list-line-height: 24px !default;
+
+$breadcrumb-height: 20px !default;
+
+/*----------  Form Elements  ----------*/
+
+$form-input-height:             36px !default;
+$form-input-border-size:        1px !default;
+$form-input-padding-vertical:   6px !default;
+$form-input-padding-horizontal: 8px !default;
+$form-input-padding:            $form-input-padding-vertical $form-input-padding-horizontal;
+$form-input-line-height:        $form-input-height - $form-input-padding-vertical * 2 !default;
+$form-input-border-color:       $color-border !default;
+$form-input-border:             $form-input-border-size $form-input-border-color solid;
+$form-input-text-size:          $font-base-size !default;
+$form-border-radius:            3px !default;
+
+// Buttons
+$form-button-background-color: $color-brand-primary !default;
+$form-button-text-color:       $color-white !default;
+$form-button-font-family:      $font-base-family !default;
+$form-button-font-weight:      bold !default;
+$form-button-font-size:        $font-base-size !default;
+$form-button-padding:          12px !default;
+$form-button-border-radius:    $form-border-radius !default;
+$form-button-height:           $form-input-height !default;
+$form-button-border-color:     darken($form-button-background-color, 0.03) !default;
+$form-button-border-size:      $form-input-border-size !default;
+$form-button-border:           $form-input-border-color $form-input-border-size solid !default;
+
+/*----------  Message  ----------*/
+
+$message-text-color: $color-black--text;
+$message-text-color--admin: $message-text-color;
+$message-text-color--moderator: $message-text-color;
+$message-code-background: rgba($color-black, 0.9);
+$message-code-color: $color-white;
+
+/*----------  Media Query Breakpoints  ----------*/
+
+$breakpoint-mobile:         350px !default;
+$breakpoint-mobile--large:  410px !default;
+$breakpoint-tablet--small:  600px !default;
+$breakpoint-tablet:         850px !default;
+$breakpoint-desktop:        1000px !default;
+$breakpoint-desktop--large: 1200px !default;
+$breakpoint-default:        $breakpoint-tablet--small !default;
+
+/*----------  Image Buttons  ----------*/
+
+/*=====  End of Variables  ======*/

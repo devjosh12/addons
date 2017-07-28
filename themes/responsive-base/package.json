@@ -1,0 +1,10 @@
+{
+  "name": "vanillaforums-responsive-base",
+  "version": "1.0.0",
+  "description": "A responsive theme base for a vanilla forums theme.",
+  "main": "js/custom.js",
+  "style": "src/scss/_core.scss",
+  "repository": "http://github.com/vanilla/themes/tree/responsive-base",
+  "author": "Adam Charron <adam@charrondev.com>",
+  "license": "GPLv2"
+}

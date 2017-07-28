@@ -1,0 +1,199 @@
+.c_Panel--bottom {
+    @include max-width($breakpoint-tablet) {
+        .BoxFilter,
+        .BoxNewDiscussion,
+        .BoxCategories {
+            display: none;
+        }
+
+        .Box h4 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: $font-heading-size--small;
+            font-weight: bold;
+            color: $color-black--text;
+        }
+    }
+}
+
+.c_Panel--top {
+    display: none;
+}
+
+.c_Panel {
+    padding: $content-padding-top;
+
+    h4 {
+        font-weight: bold;
+        margin-bottom: 6px;
+        padding-bottom: 3px;
+        border-bottom: $border;
+    }
+
+    .ButtonGroup.Multi {
+        width: 100%;
+        padding: 0;
+    }
+
+    .Count {
+        float: right;
+        height: 24px;
+        line-height: 24px;
+        padding-top: 1px;
+    }
+
+    .ProfilePhoto {
+        height: 24px;
+        width: 24px;
+    }
+
+    .ProfilePhotoLarge,
+    .PhotoWrapLarge {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.Leaderboard {
+    li {
+        margin-bottom: 6px;
+    }
+}
+
+.Box {
+    li,
+    li:first-child {
+        border: none;
+    }
+}
+
+body.Section-EditProfile .Box,
+.BoxFilter,
+.BoxCategories {
+    margin-top: 12px;
+
+    .PanelCategories li {
+        padding: 0;
+
+        &.Depth2,
+        &.Depth3,
+        &.Depth4,
+        &.Depth5 {
+            position: relative;
+
+            a {
+                padding-left: 24px;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                width: 6px;
+                height: 6px;
+                border-bottom: 2px solid $color-black--text;
+                border-left: 2px solid $color-black--text;
+                opacity: 0.9;
+                transform: translateY(-100%);
+                z-index: 1;
+            }
+        }
+    }
+
+    a {
+        display: inline-block;
+        line-height: 24px;
+        padding: 3px 6px;
+        border-radius: $form-border-radius;
+        width: 100%;
+        color: $color-black--text;
+        transition: transition(color), transition(background-color);
+
+        &:hover {
+            background: $color-brand-white;
+        }
+    }
+
+    .Active a {
+        color: $color-brand-primary;
+    }
+}
+
+.TagCloud {
+    li {
+        padding: 0;
+        margin: 0;
+        position: relative;
+        display: inline-flex;
+        border: none;
+        margin-bottom: 6px;
+        margin-right: 6px;
+        border-radius: $form-border-radius;
+        max-width: 100%;
+
+        a,
+        &::after {
+            border: 1px solid transparent;
+            transition: transition(border, 0.2s), transition(background, 0.2s);
+        }
+
+        a {
+            background: $color-brand-white;
+            color: $color-black--text;
+            line-height: 20px;
+            padding: 0 6px;
+            border-right: none;
+            border-top-left-radius: $form-border-radius;
+            border-bottom-left-radius: $form-border-radius;
+            display: block;
+            max-width: calc(100% - 52px);
+        }
+
+        &::after {
+            content: "";
+            min-width: 52px;
+            background: $color-brand-primary;
+            border-top-right-radius: $form-border-radius;
+            border-bottom-right-radius: $form-border-radius;
+            border-left: none;
+        }
+
+        .Count {
+            background: none;
+            position: absolute;
+            height: initial;
+            width: 52px;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transition(color, 0.2s);
+        }
+
+        &:hover {
+            .Count {
+                color: $color-brand-primary;
+            }
+
+            a,
+            &::after {
+                border-color: $color-brand-primary;
+            }
+
+            a {
+                background: $color-brand-primary;
+                color: $color-white;
+            }
+
+            &::after {
+                background: transparent;
+            }
+        }
+    }
+}

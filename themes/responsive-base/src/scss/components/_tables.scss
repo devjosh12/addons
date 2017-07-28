@@ -1,0 +1,272 @@
+/*=============================================
+=            Tables
+=============================================*/
+
+.DataTable {
+    td.BigCount {
+        width: 110px;
+    }
+
+    tr.NoTable,
+    tr.Carousel {
+        display: none;
+    }
+
+    thead td {
+        background: $color-black;
+        border-top: 4px solid $color-brand-primary;
+        color: $color-white;
+        font-weight: normal;
+        line-height: 24px;
+    }
+
+    td .Wrap {
+        padding: 4px 12px;
+    }
+
+    h2,
+    h2 a,
+    h3,
+    h3 a,
+    .Title {
+        font-size: $font-base-size;
+        padding-right: 6px;
+    }
+
+    .SpFlyoutHandle::before,
+    .Bookmark::before {
+        font-size: 16px;
+    }
+
+    .Read .Title {
+        font-weight: normal !important;
+    }
+
+    time {
+        color: $color-black--text;
+    }
+
+    td.BigCount {
+        min-width: 10%;
+    }
+
+    td.BigCount .Number {
+        font-weight: normal;
+    }
+}
+
+/*----------  Discussion Specific  ----------*/
+.DiscussionsTable {
+    $photoSize: 32px;
+
+    td.CheckBoxColumn {
+        .Wrap {
+            padding: 0;
+        }
+    }
+
+    .MiniPager,
+    .Meta {
+        display: inline-block;
+    }
+
+    .Meta .Tag {
+        background: $color-black;
+        padding-bottom: 3px;
+        color: $color-white;
+    }
+
+    .MItem.Category {
+        margin: 0;
+    }
+
+    .MiniPager,
+    .MItem.Category {
+        margin-right: 12px;
+    }
+
+    td.LastUser,
+    td.FirstUser {
+        width: 160px;
+
+        @include max-width(950px) {
+            display: none;
+        }
+    }
+
+    thead td.LastUser,
+    thead td.FirstUser {
+        .Wrap {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    tbody {
+        td.LastUser,
+        td.FirstUser {
+            position: relative;
+            margin-top: 0;
+
+            .UserLink {
+                padding-right: 6px;
+            }
+
+            .Wrap {
+                position: static;
+                align-items: baseline;
+                padding-left: 40px;
+            }
+
+            .PhotoWrap {
+                position: absolute;
+                width: $photoSize;
+                height: $photoSize;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        td.DiscussionName .Wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding-right: 60px;
+
+            .Title,
+            .Excerpt {
+                margin-right: 0;
+                line-height: 20px;
+                max-height: 20px;
+                overflow: hidden;
+                word-break: break-all;
+                white-space: wrap;
+                word-wrap: break-word;
+                display: inline-block;
+                max-width: 480px;
+                position: relative;
+            }
+
+            .Title,
+            .Excerpt {
+                width: 100%;
+            }
+
+            .MItem.Category {
+                display: flex;
+            }
+
+            .MItem.Category a {
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                display: inline-block;
+                overflow: hidden;
+                padding-left: 4px;
+            }
+        }
+    }
+
+    td.CountReplies,
+    td.CountComments {
+        @include max-width(800px) {
+            display: none;
+        }
+    }
+}
+
+.CategoryGroup.HideTable {
+    display: none;
+}
+
+body.UserLoggedOut .DiscussionsTable tbody td.DiscussionName .Wrap {
+    padding-right: 0;
+}
+
+.Frame-contentWrap {
+    @include clearfix;
+}
+
+.CategoryGroup.HideTable {
+    display: none;
+}
+
+.CategoryTable {
+    td .Options {
+        position: absolute;
+    }
+
+    .ChildCategories {
+        margin-right: 40px; // Make room for settings
+    }
+
+    h2,
+    h3,
+    .CategoryDescription {
+        padding-left: 72px;
+    }
+
+    .NoPhoto ~  {
+        h2,
+        h3,
+        .CategoryDescription {
+            padding-left: 0;
+        }
+    }
+
+    tbody td.LatestPost {
+        .Meta span:last-child {
+            display: none;
+        }
+
+        .PhotoWrap {
+            padding-right: 6px;
+        }
+
+        .BlockTitle {
+            margin-top: 6px;
+        }
+
+        .Meta {
+            margin-top: 3px;
+        }
+    }
+
+    td.CategoryName {
+        margin-bottom: 0;
+    }
+
+    td.CountComments {
+        @include max-width {
+            display: none;
+        }
+    }
+
+    @include max-width(780px) {
+        td.LatestPost {
+            display: none;
+        }
+
+        thead td.CountDiscussions {
+            border-top-right-radius: 4px;
+        }
+    }
+
+    @include max-width(420px) {
+        td.CountDiscussions {
+            display: none;
+        }
+
+        thead td.CategoryName {
+            border-top-right-radius: 4px;
+        }
+    }
+}
+
+/*=====  End of Tables  ======*/

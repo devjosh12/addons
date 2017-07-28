@@ -1,0 +1,90 @@
+/*=============================================
+=            Utility mixins and functions
+=============================================*/
+
+@function image($imageName) {
+    @return url("/themes/chipde/design/images/#{$imageName}");
+}
+
+@mixin max-width($width: $breakpoint-default) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin min-width($width: $breakpoint-default) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin clearfix() {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin minWidth($width: 600px) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin ellipsis() {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+@mixin gutter($includeVertical: false) {
+    padding-left: $dimen-gutter;
+    padding-right: $dimen-gutter;
+
+    @if ($includeVertical) {
+        padding-top: $dimen-gutter;
+        padding-bottom: $dimen-gutter;
+    }
+
+    @include min-width {
+        padding-right: $dimen-gutter + $dimen-unit;
+        padding-left: $dimen-gutter + $dimen-unit;
+
+        @if ($includeVertical) {
+            padding-top: $dimen-gutter + $dimen-unit;
+            padding-bottom: $dimen-gutter + $dimen-unit;
+        }
+    }
+}
+
+@mixin gutter--small() {
+        padding-left: $dimen-unit * 2;
+        padding-right: $dimen-unit * 2;
+
+    @media screen and (max-width: $breakpoint-phone-xlarge) {
+        padding-left: $dimen-unit;
+        padding-right: $dimen-unit;
+    }
+}
+
+@mixin fullBleed() {
+    margin: 0 #{ - $dimen-gutter};
+    width: calc(100% + #{$dimen-gutter * 2});
+}
+
+@function transition($property, $duration: $animation-duration) {
+    @return $property $animation-easing $duration;
+}
+
+.NoScroll {
+    @include max-width($breakpoint-tablet) {
+        height: 100vh;
+        overflow: hidden;
+    }
+}
+
+/*=====  End of Utility mixins and functions  ======*/

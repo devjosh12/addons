@@ -1,0 +1,110 @@
+.c_Frame {
+    @if ($frame-stick-footer) {
+        display: flex;
+        flex-direction: column;
+    }
+    min-height: 100vh;
+    background-color: $frame-background-color;
+    background-image: $frame-background-image;
+    background-size: $frame-background-size;
+    background-position: $frame-background-position;
+    background-repeat: $frame-background-repeat;
+}
+
+.c_Frame-top {
+    @if ($frame-stick-footer) {
+        flex: 1 0 auto;
+    }
+}
+
+.c_Frame-content {
+    padding: $frame-content-padding;
+}
+
+.c_Frame-contentWrap {
+    background: $color-white;
+}
+
+.c_Frame-details {
+    @include clearfix;
+    padding: $frame-details-padding;
+}
+
+.c_Container {
+    @include gutter;
+    max-width: $dimen-content-width;
+    margin: 0 auto;
+}
+
+.c_Frame-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.c_Content {
+    padding-top: $content-padding-top;
+    padding-bottom: $content-padding-bottom;
+    padding-right: $content-padding-right;
+    padding-left: $content-padding-left;
+}
+
+.c_Crumbs {
+    padding-top: $crumbs-padding-top;
+    padding-bottom: $crumbs-padding-bottom;
+    padding-right: $crumbs-padding-right;
+    padding-left: $crumbs-padding-left;
+    background: $crumbs-background;
+}
+
+.c_Frame-content {
+    .DataListWrap {
+        margin-top: 24px;
+    }
+
+    .SearchBox {
+        max-width: 400px;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .Breadcrumbs {
+        margin-bottom: 6px;
+        display: inline-block;
+        margin-right: 12px;
+        line-height: $crumbs-line-height;
+
+        a {
+            text-transform: uppercase;
+            // font-weight: bold;
+            font-size: $font-base-size - 2px;
+            color: $color-brand-primary;
+        }
+
+        .Last a,
+        .Crumb {
+            color: $color-black--text;
+        }
+    }
+
+    h1 {
+        font-weight: bold;
+        font-size: $font-heading-size--secondary;
+        margin-bottom: 6px;
+    }
+}
+
+@include min-width($breakpoint-tablet) {
+    .c_Content {
+        width: 75%;
+        float: left;
+    }
+
+    .c_Panel {
+        width: 25%;
+        float: right;
+        padding-left: 18px;
+    }
+}

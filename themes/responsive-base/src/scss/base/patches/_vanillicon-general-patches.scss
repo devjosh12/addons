@@ -1,0 +1,308 @@
+/*=============================================
+=            Vanillicon            =
+=============================================*/
+
+@mixin icon() {
+    display: inline-block;
+    min-width: 1em;
+    font-family: vanillicon;
+    font-variant: normal;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    text-decoration: inherit;
+    text-transform: none;
+    line-height: 1;
+    color: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+.Sprite,
+.Sprite16,
+.ReactSprite,
+.SpFlyoutHandle {
+    width: auto;
+    height: auto;
+    background-image: none !important;
+
+    &::before {
+        @include icon;
+        min-width: 1em;
+        text-align: center;
+    }
+}
+
+.ReactSprite {
+    &::before {
+        font-size: 14px;
+    }
+}
+
+.SpFlyoutHandle {
+    cursor: pointer;
+}
+
+.SpEditProfile::before {
+    content: $icon-user;
+}
+
+.SpDropdownHandle::before {
+    content: $icon-caret-down;
+}
+
+.SpDiscussions::before {
+    content: $icon-discussion;
+}
+
+.SpActivity::before {
+    content: $icon-time;
+}
+
+.SpNotifications::before {
+    content: $icon-globe;
+}
+
+.SpDelete::before {
+    content: $icon-remove;
+}
+
+.SpFlyoutHandle::before {
+    content: $icon-cog;
+}
+
+.SpOptions::before {
+    content: $icon-cog;
+}
+
+.SpPreferences::before {
+    content: $icon-cog;
+}
+
+.SpBookmarks::before {
+    content: $icon-star;
+}
+
+.SpPassword::before {
+    content: $icon-lock;
+}
+
+.SpSearch::before {
+    content: $icon-search;
+}
+
+.SpInbox::before {
+    content: $icon-inbox;
+}
+
+//Reactions
+.ReactPromote::before {
+    content: $icon-hand-up;
+}
+
+.ReactOffTopic::before {
+    content: $icon-meh;
+}
+
+.ReactInsightful::before {
+    content: $icon-lightbulb;
+}
+
+.ReactDisagree::before {
+    content: $icon-frown;
+}
+
+.ReactAgree::before {
+    content: $icon-smile;
+}
+
+.ReactDislike::before {
+    content: $icon-thumbs-down;
+}
+
+.ReactLike::before {
+    content: $icon-thumbs-up;
+}
+
+.ReactDown::before {
+    content: $icon-arrow-down;
+}
+
+.ReactUp::before {
+    content: $icon-arrow-up;
+}
+
+.ReactWTF::before {
+    content: $icon-wtf;
+}
+
+.ReactAwesome::before {
+    content: $icon-heart;
+}
+
+.ReactLOL::before {
+    content: $icon-lol;
+}
+
+.ReactFlag::before {
+    content: $icon-flag;
+}
+
+.ReactAbuse::before {
+    content: $icon-exclamation-sign;
+}
+
+.ReactSpam::before {
+    content: $icon-spam;
+}
+
+.ReactQuote::before {
+    content: $icon-quote;
+}
+
+.ReactWarn::before {
+    content: $icon-warn;
+}
+
+.ReactFacebook::before {
+    content: $icon-facebook-alt;
+}
+
+.ReactFacebook:hover {
+    &::before {
+        color: #3A5795;
+    }
+}
+
+.ReactTwitter::before {
+    content: $icon-twitter;
+}
+
+.ReactTwitter:hover {
+    &::before {
+        color: #55ACEE;
+    }
+}
+
+.ReactGooglePlus::before {
+    content: $icon-google-plus-alt;
+}
+
+.ReactGooglePlus:hover {
+    &::before {
+        color: #DD4B39;
+    }
+}
+
+.ReactButton.PopupWindow {
+    &:hover {
+        .Sprite::before {
+            color: $color-brand-primary;
+        }
+    }
+}
+
+.Button.Handle .Sprite,
+.NavButton.Handle .Sprite {
+    position: static;
+    border: 0;
+    vertical-align: baseline;
+}
+
+.Handle > .SpEditProfile,
+.NavButton > .SpEditProfile {
+    width: auto;
+    height: auto;
+    vertical-align: baseline;
+    line-height: inherit;
+}
+
+.Options {
+    .Bookmark,
+    .SpFlyoutHandle {
+        display: inline-block;
+        padding: 2px;
+
+        &::before {
+            font-size: $font-base-height;
+        }
+    }
+
+    .AdminCheck .icheckbox::before {
+        vertical-align: top;
+    }
+}
+
+.OptionsMenu {
+    font-size: $font-base-size;
+
+    .Flyout {
+        top: 100%;
+        right: -9px;
+        margin-top: 10px;
+    }
+}
+
+.OptionsTitle {
+    display: none;
+}
+
+.MeBox {
+    .SocialIcon .Icon {
+        background: none;
+        text-align: center;
+    }
+
+    .SocialIcon .Icon::before {
+        @include icon;
+        font-size: 16px;
+        color: $color-white;
+    }
+
+    .SocialIcon-Facebook .Icon::before {
+    content: $icon-facebook-alt;
+    }
+
+    .SocialIcon-Twitter .Icon::before {
+    content: $icon-twitter-alt;
+    }
+
+    .SocialIcon-Google .Icon::before {
+    content: $icon-google-plus-alt;
+    }
+}
+
+.MeBox {
+    .Arrow {
+        display: none;
+    }
+}
+
+a.Bookmark {
+    width: auto;
+    height: auto;
+    font: 0/0 a;
+    color: transparent;
+    text-indent: 0;
+    background-image: none !important;
+
+    &::before {
+        @include icon;
+        font-size: $font-base-height;
+        color: $color-brand-primary;
+        content: $icon-star-empty;
+    }
+
+    &:hover::before {
+        color: darken($color-brand-primary, 10%);
+    }
+}
+
+a.Bookmarked {
+    &::before,
+    &:hover::before {
+        color: #E5B951 !important;
+        content: $icon-star;
+    }
+}
+
+/*=====  End of Vanillicon  ======*/

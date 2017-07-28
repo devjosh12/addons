@@ -1,0 +1,37 @@
+
+/*=============================================
+=            Animations            =
+=============================================*/
+
+@keyframes slideInMenu {
+    0% {
+        z-index: 15;
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        z-index: 15;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutMenu {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+        z-index: 15;
+    }
+
+    99% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        z-index: -1;
+    }
+}
+
+/*=====  End of Animations  ======*/

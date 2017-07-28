@@ -1,0 +1,241 @@
+.c_Header {
+    background: $header-background-color;
+    border-top: $header-border-top;
+    border-bottom: $header-border-bottom;
+    border-left: $header-border-left;
+    border-right: $header-border-right;
+    box-shadow: $header-box-shadow;
+
+    &-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @if ($header-has-fixed-height) {
+            height: $header-height;
+
+            @include min-width {
+                height: $header-height * 2;
+            }
+        }
+    }
+
+    &-logo {
+        padding-top: $header-padding;
+        padding-bottom: $header-padding;
+
+        img {
+            max-height: $header-logo-max-height;
+            max-width: $header-logo-max-width;
+            width: auto;
+            height: auto;
+
+            @include min-width {
+                max-width: 40vw;
+                max-height: $header-logo-max-height * 1.2;
+            }
+        }
+    }
+
+    &-right {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+
+        > * {
+            height: $header-height / 2;
+
+            @include min-width {
+                height: $header-height;
+            }
+        }
+    }
+
+    &-links,
+    .c_MeBox--header {
+        display: none;
+
+        @include min-width {
+            display: block;
+        }
+    }
+
+    .c_MeBox--header {
+        padding-top: $header-mebox-padding-top;
+        padding-bottom: $header-mebox-padding-bottom;
+
+        .MeButton.FlyoutButton,
+        .WhoIs > .Username {
+            transition: transition(color);
+            color: $header-mebox-color;
+
+            &:hover {
+                color: $header-mebox-color-hover;
+            }
+        }
+
+        .MeButton:hover {
+            background: #eee;
+            background: rgba(0, 0, 0, 0.07);
+        }
+
+        .SignInLinks {
+            a,
+            .Bullet {
+                text-transform: uppercase;
+                line-height: 28px;
+                display: inline-block;
+                padding: 6px;
+                padding-top: 7px;
+                color: $color-brand-primary;
+                border-radius: $form-border-radius;
+                transition: transition(background-color);
+            }
+
+            a:hover {
+                background: $color-brand-white;
+            }
+        }
+
+        .MeButton {
+            border-radius: $form-border-radius;
+        }
+
+        .MeBox,
+        .MeMenu,
+        .WhoIs {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .MeBox > .PhotoWrap {
+            img {
+                height: $header-mebox-photo-size;
+                width: $header-mebox-photo-size;
+            }
+        }
+
+        .WhoIs > .Username {
+            display: flex;
+            align-items: center;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 18px;
+                width: 2px;
+                margin: 0 12px;
+                background: $header-mebox-color;
+            }
+        }
+    }
+
+    &-links {
+        @include min-width {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+
+    &-languageSelector {
+        .active {
+            display: none;
+        }
+    }
+
+    &-divider {
+        padding: 0 12px;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 12px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            background: rgba($color-black, 0.3);
+        }
+    }
+
+    &-link,
+    &-links a {
+        color: $color-black--text;
+        font-weight: bold;
+        transition: transition(color);
+
+        &:hover {
+            color: $color-brand-primary;
+        }
+
+        &.isLowPriority {
+            display: none;
+
+            & + .c_Header-divider {
+                display: none;
+            }
+
+            @include min-width($breakpoint-tablet) {
+                display: block;
+
+                & + .c_Header-divider {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &-link,
+    &-links a,
+    &-cta,
+    &-divider {
+        height: 44px;
+        line-height: 44px;
+        display: inline-block;
+    }
+
+    &-ctaContainer {
+    }
+
+    .LocaleOptions,
+    .LocaleOption {
+        padding: 0;
+    }
+
+    &-cta {
+        appearance: none;
+        display: block;
+        background: $color-brand-accent;
+        border: none;
+        color: $color-white;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 0 18px;
+        line-height: 20px;
+        height: 44px;
+        border-bottom-right-radius: $form-border-radius;
+        border-bottom-left-radius: $form-border-radius;
+        transition: transition(background-color), transition(height);
+        transition-duration: 0.1s;
+        margin-left: 12px;
+
+        &:active,
+        &:focus,
+        &:hover {
+            outline: none;
+            box-shadow: none;
+            // background: darken($color-brand-accent, 5%);
+            height: 52px;
+        }
+    }
+
+    @include min-width {
+        .c_Hamburger {
+            display: none;
+        }
+    }
+}

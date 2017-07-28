@@ -1,0 +1,96 @@
+/*=============================================
+=            Typography
+=============================================*/
+
+@mixin font-style-base() {
+    font-family: $font-base-family;
+    font-weight: $font-base-weight;
+    font-size: $font-base-size;
+    line-height: inherit;
+    color: inherit;
+}
+
+@mixin font-style-link() {
+    transition: color 0.1s ease-out;
+    font-family: $font-link-family;
+    font-weight: $font-link-weight;
+    font-size: $font-link-size;
+    color: $color-brand-primary;
+    line-height: inherit;
+
+    &:hover {
+        color: darken($color-brand-primary, 5%);
+    }
+}
+
+@mixin font-style-heading() {
+    font-family: $font-heading-family;
+    font-weight: $font-heading-weight;
+    font-size: $font-heading-size;
+    line-height: $font-base-height;
+    color: inherit;
+}
+
+body {
+    @include font-style-base;
+    color: $color-black--text;
+}
+
+* {
+    font-family: inherit;
+    color: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    word-wrap: break-word;
+}
+
+p,
+span {
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+}
+
+a {
+    @include font-style-link;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include font-style-heading;
+    margin: 0;
+}
+
+h1 {
+    font-size: $font-heading-size--secondary;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: $color-brand-primary;
+}
+
+h2 {
+    font-size: $font-heading-size--secondary;
+}
+
+h1,
+h2 {
+    color: $color-brand-primary;
+
+    .Gloss {
+        color: $color-black--text;
+    }
+}
+
+strong,
+b {
+    font-weight: bold;
+}
+
+/*=====  End of Typography  ======*/

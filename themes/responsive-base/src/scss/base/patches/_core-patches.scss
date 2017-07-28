@@ -1,0 +1,375 @@
+
+/*=============================================
+=            Core Patches
+= Fixes that apply to every theme
+=============================================*/
+
+// Button styling mixin
+@mixin Button(
+    $background: $form-button-background-color,
+    $color: $form-button-text-color
+) {
+    font-family: $form-button-font-family;
+    font-weight: $form-button-font-weight;
+    font-size: $form-button-font-size;
+    text-transform: uppercase;
+    color: inherit;
+    transition: background 0.1s ease, border 0.1s ease;
+    background: $background;
+    color: $color;
+    border: $form-button-border;
+    line-height: $form-button-height;
+    padding: 0 $form-button-padding;
+    text-decoration: none;
+    border-radius: $form-button-border-radius;
+    display: inline-block;
+
+    &:hover,
+    &:active,
+    &:focus {
+        $new-color: lighten($background, 4%);
+        background: $new-color;
+        color: $color;
+        border-color: $new-color;
+    }
+}
+
+.Button {
+    @include Button;
+}
+
+// Fix menu item hover colors
+.MenuItem a {
+    transition: 0.2s ease-out color;
+}
+
+.MenuItems a:hover {
+    color: $color-brand-primary !important;
+    text-decoration: none;
+    background-color: rgba($color-black, 0.04) !important;
+}
+
+// Reset margins
+.Aside {
+    margin: 0;
+}
+
+.DismissMessage {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.UserBox,
+.MeBox {
+    margin: 0;
+}
+
+// Fix extra white space in MeBox
+
+.MeBox {
+    min-height: initial;
+    display: flex;
+
+    > .PhotoWrap {
+        float: none;
+    }
+
+    .MeMenu {
+        display: flex;
+        align-items: center;
+    }
+
+    .Username {
+        margin-left: 6px;
+    }
+}
+
+// Basic table styling
+.CategoryTable,
+.DataTableWrap {
+    tr {
+        border-bottom: $border;
+    }
+
+    tr.Read {
+        background: none;
+    }
+
+    td {
+        border-bottom: none;
+        vertical-align: middle;
+        border-bottom: $border;
+        vertical-align: middle;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tbody td {
+    }
+
+    td .Wrap {
+        padding-left: 12px;
+        padding-right: 12px;
+        position: relative;
+    }
+
+    tbody td.CategoryName {
+        .PhotoWrap {
+            margin: 0;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .CategoryPhoto {
+            max-width: 60px;
+        }
+    }
+
+    thead {
+        td {
+            line-height: 40px;
+        }
+
+        td.BigCount .Wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    tbody {
+        .Wrap {
+            padding: 6px;
+            position: relative;
+        }
+
+        // Leave room for the options menu
+        td.CategoryName,
+        td.DiscussionName {
+            .Title,
+            td h2,
+            td h3 {
+                font-weight: bold;
+            }
+        }
+        .Options {
+            position: absolute;
+            right: $dimen-gutter;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    td.BigCount {
+        padding: 0 4px;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .ChildCategories {
+        border-top: none;
+    }
+}
+
+.Options .Arrow {
+    &::before {
+        color: $color-brand-primary--dark;
+    }
+}
+
+// The warnings plugin overrides the display property on this. Set it back.
+.PhotoWrap.Hidden {
+    display: none;
+}
+
+// Reset data lists
+.DataList {
+    .Item {
+        border: none;
+
+        &.Read {
+            background: none;
+        }
+    }
+}
+
+.ButtonGroup.Multi {
+    display: flex;
+
+    .Button:first-child {
+        flex: 1;
+    }
+}
+
+.PageTitle .Options {
+    height: initial;
+}
+
+.ItemDiscussion {
+    margin-bottom: initial;
+}
+
+.HasNew {
+    background: $color-brand-primary--dark;
+    color: $color-white;
+    padding: 0 6px;
+    margin-right: 6px;
+}
+
+#SignoutWarning {
+    bottom: initial;
+    background: $color-white;
+
+    * {
+        line-height: 40px;
+    }
+}
+
+body.Section-EditProfile {
+    .FormTitleWrapper form {
+        background: none !important;
+        padding: 18px !important;
+
+        > div {
+            margin: -2%;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        li {
+            width: 48%;
+            margin-right: 2%;
+        }
+
+        li > input {
+            width: 100%;
+        }
+
+        li.User-Avatar {
+            order: 100;
+            width: 100%;
+            margin-right: 0;
+        }
+
+        .Button {
+            margin-top: 12px;
+        }
+    }
+}
+
+.MultipleEntryMethods {
+    flex-wrap: wrap;
+}
+
+.MultipleEntryMethods .Methods {
+    margin-left: 0;
+    padding: 18px 0;
+}
+
+.CreateAccount {
+    margin-top: 12px;
+}
+
+.Activities ul.DataList,
+.Activities .ActivityComments .ItemContent {
+    margin-left: 0;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+.ProfilePhoto {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    box-shadow: inset 0 0 1px rgba($color-black, 0.2);
+}
+
+.Count,
+.Reactions .Count {
+    background-color: $color-brand-primary--dark;
+    padding: 3px 6px 2px;
+    font-size: $font-base-size - 2px;
+}
+
+.MenuItems,
+.FlyoutMenu {
+    border: $border;
+    box-shadow: $shadow;
+
+    &::before {
+        opacity: 0.4;
+    }
+}
+
+.Dropdown.MenuItems {
+    min-width: 100%;
+
+    a {
+        line-height: $form-input-height - 8px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+}
+
+body > svg {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+}
+
+body.Section-Profile .MeBox {
+    display: flex;
+}
+
+
+
+body.Section-Profile .User > .DismissMessage {
+    clear: both;
+    position: static;
+    float: right;
+    width: 100%;
+}
+
+.Popup #UserBadgeForm {
+    p,
+    h1 {
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    textarea {
+        display: block;
+        width: 100%;
+        margin-top: 6px;
+    }
+
+    button {
+        @include Button;
+        margin-top: 10px;
+        float: right;
+        margin-top: -16px;
+    }
+}
+
+/*=====  End of Core Patches  ======*/

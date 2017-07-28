@@ -1,0 +1,19 @@
+div.Popup {
+    top: 50vh !important;
+    left: 50vw !important;
+    position: fixed;
+    transform: translateX(-50%) translateY(-70%);
+
+    .Border {
+        background: none;
+    }
+
+    .Body {
+        padding: 24px 18px;
+        box-shadow: 0 1px 3px 0px rgba($color-black, 0.4);
+    }
+}
+
+.Overlay {
+    background: rgba($color-black, 0.4);
+}

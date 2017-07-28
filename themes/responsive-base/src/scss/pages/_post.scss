@@ -1,0 +1,53 @@
+.FormWrapper {
+    padding: 12px;
+    background: $color-brand-white;
+    border: $form-border-radius;
+
+    .AvailableTags {
+        a {
+            line-height: $font-base-height;
+            display: inline-block;
+            margin: 3px 0;
+        }
+    }
+
+    .SearchBox {
+        display: none;
+    }
+
+    .Buttons {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+
+        .Button {
+            margin-bottom: 6px;
+            margin-right: 6px;
+            margin-left: 0;
+            margin-top: 0;
+        }
+    }
+
+    .SelectWrapper {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .ShowTags {
+        display: block;
+        margin-top: 6px;
+    }
+}
+
+body.Post,
+body.Section-PostConversation,
+body.Messages.inbox {
+    .c_Content {
+        width: 100%;
+    }
+
+    .c_Panel {
+        display: none;
+    }
+}

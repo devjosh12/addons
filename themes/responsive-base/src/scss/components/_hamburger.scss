@@ -1,0 +1,171 @@
+$hamburger-size: 24px !default;
+$hamburger-transition: 0.3s !default;
+$hamburger-jstransform: "isToggled" !default;
+$hamburger-menu-radius: 10;
+$hamburger-menu-color: $header-hamburger-color;
+$hamburger-svgchevron-size: $header-hamburger-size !default;
+$hamburger-svgchevron-color: $color-brand-primary !default;
+$hamburger-svgchevron-timing: 3s !default;
+
+@keyframes chevron-pulse {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.Hamburger-svgchevron {
+    height: $hamburger-svgchevron-size + $header-hamburger-padding * 2;
+    width: $hamburger-svgchevron-size + $header-hamburger-padding * 2;
+    padding: $header-hamburger-padding;
+    background: $header-hamburger-background;
+    border-radius: $header-hamburger-background-radius;
+}
+
+.Hamburger-svgchevron path {
+    animation: chevron-pulse $hamburger-svgchevron-timing infinite cubic-bezier(0.4, 0, 0.2, 1);
+    fill: transparent;
+    stroke: $hamburger-svgchevron-color;
+    stroke-width: $header-hamburger-stroke-width;
+}
+
+@for $i from 1 through 3 {
+    .Hamburger-svgchevron path.a#{$i} {
+        animation-delay: -($i - ($i / 2)) + 0.5s;
+    }
+}
+
+.Hamburger {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $hamburger-size;
+    transition: $hamburger-transition;
+    user-select: none;
+    width: $hamburger-size;
+    background: transparent;
+    outline: none;
+    tap-highlight-color: transparent;
+
+    height: $hamburger-svgchevron-size + $header-hamburger-padding * 2;
+    width: $hamburger-svgchevron-size + $header-hamburger-padding * 2;
+    padding: $header-hamburger-padding;
+    background: $header-hamburger-background;
+    border-radius: $header-hamburger-background-radius;
+
+    > * {
+        display: block;
+    }
+
+    &:hover,
+    &:focus {
+        outline: none; // see issue #36 https://github.com/grayghostvisuals/transformicons/issues/36
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}
+
+@mixin hamburger-menuLines {
+    display: inline-block;
+    height: $header-hamburger-stroke-size;
+    width: $hamburger-svgchevron-size + $header-hamburger-padding * 2;
+    border-radius: $header-hamburger-stroke-radius;
+    transition: $hamburger-transition;
+    background: $hamburger-menu-color;
+}
+
+.Hamburger-menuLines {
+    @include hamburger-menuLines;
+    position: relative;
+
+    &::before,
+    &::after {
+        @include hamburger-menuLines;
+        content: "";
+        position: absolute;
+        left: 0;
+        transform-origin: ($hamburger-size / 4) center;
+        width: 100%;
+    }
+
+    &::before {
+        top: ($hamburger-size / 4);
+    }
+
+    &::after {
+        top: -($hamburger-size / 4);
+    }
+
+    .#{$hamburger-jstransform} & {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.Hamburger-menuXcross {
+    width: auto;
+    padding: 0;
+    height: $hamburger-svgchevron-size + $header-hamburger-padding * 2;
+    width: $hamburger-svgchevron-size + $header-hamburger-padding * 2;
+    padding: $header-hamburger-padding;
+    background: $header-hamburger-background;
+    border-radius: $header-hamburger-background-radius;
+
+    &.#{$hamburger-jstransform} {
+        .Hamburger-menuLines {
+            background: transparent;
+
+            &::before,
+            &::after {
+                transform-origin: 50% 50%;
+                top: 0;
+                left: 2px;
+                width: $header-hamburger-stroke-width;
+            }
+
+            &::before {
+                transform: rotate3d(0, 0, 1, 45deg);
+            }
+
+            &::after {
+                transform: rotate3d(0, 0, 1, -45deg);
+            }
+        }
+    }
+}
+
+// Accessibility
+.Hamburger-visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    &:active,
+    &:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}

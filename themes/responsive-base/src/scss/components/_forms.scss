@@ -1,0 +1,249 @@
+input[type= "text"],
+textarea,
+ul.token-input-list,
+input.InputBox,
+.AdvancedSearch .InputBox,
+select,
+.AdvancedSearch select {
+    line-height: $form-input-line-height;
+    height: $form-input-height;
+    border: $form-input-border;
+    border-radius: $form-border-radius;
+    $color: $color-black--text;
+    font-family: $font-base-family;
+    background: $color-white;
+    padding: $form-input-padding-vertical 10px;
+    margin: 0;
+    padding-top: $font-top-offset;
+    padding-bottom: $font-bottom-offset;
+
+    &:focus,
+    &:active {
+        background: $color-white;
+        box-shadow: none;
+        outline: none;
+        border-color: $color-brand-primary;
+    }
+}
+
+textarea {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+select,
+.AdvancedSearch select {
+    line-height: initial;
+    -moz-appearance: none;
+    height: $form-input-height;
+
+    font-family: "system-ui", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 24px;
+
+    &:focus {
+        -moz-appearance: none;
+    }
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+.FormWrapper {
+    padding: 12px;
+    border-radius: $form-border-radius;
+
+    .Buttons .Back {
+        padding-right: 12px;
+    }
+}
+
+.ActivityFormWrap {
+    margin-bottom: 12px;
+}
+
+label {
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+ul.token-input-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: $form-input-padding;
+    line-height: initial;
+
+    li input {
+        margin: 0 !important;
+        padding: 0;
+        height: $form-input-line-height - 2px;
+        line-height: initial;
+        font-size: $font-base-size;
+        font-weight: 400 !important;
+        padding-top: $font-top-offset;
+        padding-bottom: $font-bottom-offset;
+    }
+
+    &.token-input-focused {
+        background: $color-white;
+        box-shadow: none;
+        outline: none;
+        border-color: $color-brand-primary;
+    }
+}
+
+li.token-input-token {
+    background: $color-brand-primary;
+    color: $color-white;
+    border: darken($color-brand-primary, 0.03);
+    border-radius: $form-border-radius;
+    margin-right: 3px;
+}
+
+div.token-input-dropdown {
+    border: none;
+    border-top: $border;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: $border;
+    border-radius: $form-border-radius;
+    box-shadow: 0 -2px 10px 2px rgba($color-black, 0.1);
+
+    ul li[class^= "token-input-dropdown-item"],
+    p {
+        @include gutter;
+        display: inline-block;
+        line-height: 40px;
+        width: 100%;
+    }
+}
+
+.editor {
+    a {
+        cursor: pointer;
+    }
+}
+
+.SelectWrapper {
+    position: relative;
+
+    select {
+        appearance: none;
+        width: 100%;
+    }
+
+    &::after {
+        @include icon;
+        content: $icon-select;
+        position: absolute;
+        top: 50%;
+        right: 6px;
+        transform: translateY(-50%);
+        color: $color-brand-primary--dark;
+        pointer-events: none;
+    }
+}
+
+.Button {
+    @include Button;
+}
+
+.ButtonGroup.Multi {
+    @include Button;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    max-width: $button-max-width;
+    margin: 0 auto;
+    padding-right: 32px;
+    padding-left: 32px;
+
+    @include min-width {
+        margin: 0;
+        width: initial;
+        display: inline-flex;
+    }
+
+    .Button {
+        background: none;
+        border: none;
+        font-size: inherit;
+        line-height: inherit;
+        padding: 0;
+
+        &:not(.Handle) {
+            // padding-left: 48px;
+        }
+    }
+
+    .Button.Handle,
+    &.Open .Button.Handle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: none;
+        color: $color-white;
+
+        .SpDropdownHandle::before {
+            padding: 0 12px;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: rgba($color-black, 0.05);
+            color: $color-white;
+        }
+    }
+
+    .Dropdown {
+        a {
+            font-weight: bold;
+            color: $color-black--text !important;
+        }
+    }
+}
+
+.SearchBox {
+    form > div {
+        position: relative;
+        width: 100%;
+    }
+
+    #Form_Search {
+        width: 100%;
+        padding-right: 32px;
+    }
+
+    #Form_Go {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: none;
+        color: $color-brand-primary;
+        font-size: 0;
+        width: $form-input-height;
+    }
+
+    form > div::after {
+        @include icon;
+        content: $icon-search;
+        color: $color-brand-primary;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: $form-input-height;
+        line-height: $form-input-height;
+        pointer-events: none;
+    }
+}

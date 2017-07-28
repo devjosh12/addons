@@ -1,0 +1,98 @@
+body.Section-BestOf {
+    $margin: 6px;
+    .FilterMenu {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+
+        a {
+            display: flex;
+            align-items: center;
+            margin-right: 12px;
+        }
+    }
+
+    .c_Content {
+        width: 100%;
+    }
+    .c_Frame-details {
+        padding-bottom: 6px;
+    }
+    .MainContent {
+        min-height: 150px;
+        margin: 0;
+        width: 100%;
+    }
+    .DismissMessage {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 24px;
+    }
+    .BestOfWrap {
+        margin: 0 #{-$margin};
+        width: calc(100% + #{$margin * 2});
+    }
+    .Tiles {
+        @include clearfix;
+        position: relative;
+        width: 100%;
+    }
+    .Tile {
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        width: calc((100% - #{$margin * 6} - 2px) / 3);
+        margin: 0 $margin;
+        margin-bottom: $margin * 2;
+        background: #fff;
+        border-radius: 0;
+        .Title,
+        .Title a {
+            width: 100%;
+            display: block;
+            background: none;
+        }
+        .Message {
+            $line-height: 20px;
+            $num-lines: 20;
+            display: block;
+            line-height: $line-height;
+            max-height: $line-height * $num-lines;
+            overflow: hidden;
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                display: block;
+                left: 0;
+                right: 0;
+                height: $line-height;
+                background: linear-gradient( to top, $color-white, rgba($color-white, 0.7), transparent);
+            }
+        }
+    }
+    &.UserLoggedOut {
+        .Author {
+            display: flex;
+            align-items: center;
+            .PhotoWrap {
+                margin: 0;
+                margin-right: 6px;
+            }
+        }
+    }
+    @media screen and (max-width: 780px) {
+        .BestOfWrap {
+            margin: 0;
+            width: 100%;
+        }
+        .ImageWrap {
+            width: 100%;
+        }
+        .Tile {
+            margin: 12px 0;
+        }
+    }
+}

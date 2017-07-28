@@ -1,0 +1,141 @@
+/*=============================================
+=            Pager
+=============================================*/
+
+.PagerWrap,
+.CommentsWrap {
+    @include clearfix;
+}
+
+.PagerNub {
+    display: none;
+}
+
+.CommentHeading {
+    float: left;
+}
+
+.MessageList {
+    clear: both;
+}
+
+.PageControls {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: initial;
+    margin: initial;
+    padding: 12px 0;
+
+    @include max-width(700px) {
+        .BoxNewDiscussion {
+            display: block;
+            margin-right: 0;
+        }
+    }
+}
+
+.PageControls.Top {
+    // display: none;
+
+    @include max-width(700px) {
+        display: flex;
+        margin-bottom: 12px;
+    }
+}
+
+.Pager-before {
+    margin-top: 3px;
+}
+
+.Pager {
+    display: flex;
+    align-items: center;
+    order: 1;
+    height: $list-line-height;
+
+    span,
+    > a,
+    .QuickSearch .Sprite {
+        transition: color 0.25s ease-out;
+        display: block;
+        font-size: $base-font-size--small;
+        font-weight: bold;
+        height: 20px;
+        min-width: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $color-white;
+        color: $color-brand-primary--dark;
+        border-radius: 20px;
+        padding-top: 1px;
+        padding-left: 4px;
+        padding-right: 4px;
+        margin-right: 1px;
+        margin-left: 1px;
+
+        &:hover {
+            background: darken($color-white, 4%);
+        }
+
+        &.Highlight {
+            background: $color-brand-primary;
+            color: $color-white;
+
+            &:hover {
+                background: darken($color-brand-primary, 4%);
+            }
+        }
+
+        &.Ellipsis {
+            font-size: 0;
+            background: none;
+            padding-bottom: 0;
+
+            &::after {
+                font-size: 11px;
+                font-weight: normal;
+                content: "•••";
+            }
+        }
+    }
+
+    .QuickSearch .Sprite {
+        padding-bottom: 0;
+        padding-top: 0;
+
+        &:hover {
+            background: $color-brand-accent;
+            color: $color-white;
+        }
+
+        &::before {
+            font-size: 10px;
+        }
+    }
+
+    .bwrap .Button {
+        line-height: $form-button-height;
+        height: $form-button-height;
+    }
+
+    .QuickSearch .Sprite::before {
+
+    }
+}
+
+/*=====  End of Pager  ======*/
+
+
+.PageControls.PageControls {
+    margin: 12px 0;
+
+    .BoxNewDiscussion {
+        // Reset styles from ideation
+        float: none;
+        margin-right: 0;
+    }
+}

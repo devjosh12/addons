@@ -1,0 +1,244 @@
+.c_Frame-footer {
+    .LocaleOptions {
+        display: none;
+    }
+}
+
+.c_Footer {
+    background: $footer-background-color;
+    line-height: 28px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+
+    a {
+        color: $color-black--text;
+
+        &:hover {
+            color: $color-brand-primary;
+        }
+    }
+
+    &-title {
+        font-size: $font-heading-size--small;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $color-black--text;
+
+        &--big {
+            font-size: $font-heading-size--secondary;
+            text-transform: none;
+        }
+    }
+
+    &-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    a {
+        font-size: $base-font-size--small;
+        color: $color-black--text;
+        transition: transition(color);
+
+        &:active {
+            text-decoration: underline;
+        }
+
+        &:focus,
+        &:hover {
+            color: $color-brand-primary;
+        }
+    }
+
+    &-column,
+    &-socialIcons ul {
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+        width: 100%;
+        border-bottom: $border;
+    }
+
+    @include min-width($breakpoint-tablet) {
+        &-row--columns {
+            border-bottom: $border;
+            margin-bottom: 12px;
+            justify-content: space-between;
+        }
+    }
+
+    &-column {
+        order: 1;
+        padding-right: 12px;
+
+        &--big {
+            order: 0;
+            padding-right: 0;
+        }
+
+        @include min-width {
+            width: 50%;
+
+            &--big {
+                width: 100%;
+            }
+        }
+
+        @include min-width($breakpoint-tablet) {
+            width: initial;
+            max-width: 30%;
+            border-bottom: none;
+
+            &--big {
+                width: 40%;
+                order: 4;
+                padding-left: 32px;
+                border-left: $border;
+            }
+        }
+    }
+
+    .Button {
+        @include Button($color-brand-primary, $color-white);
+        margin-top: 12px;
+    }
+
+    .icon-external-link {
+        padding-left: 6px;
+    }
+
+    &-image {
+        max-width: 120px;
+        height: auto;
+        display: block;
+        margin-bottom: 12px;
+
+        @include min-width($breakpoint-tablet) {
+            display: inline-block;
+            float: right;
+        }
+    }
+
+    &-copyright {
+        order: 1;
+
+
+        @include min-width($breakpoint-tablet) {
+            width: initial;
+            order: 0;
+            max-width: 70%;
+        }
+
+        p {
+            font-size: $base-font-size--small;
+            line-height: 1.5;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        li {
+            margin-right: 6px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+
+            a {
+                color: $color-black--text;
+                font-weight: bold;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                background: $color-black--text;
+                height: 18px;
+                width: 1px;
+                margin: 0 6px;
+            }
+
+            &:last-child:after {
+                display: none;
+            }
+        }
+    }
+
+    &-socialIcons {
+        order: 0;
+        width: 100%;
+
+        ul {
+            display: flex;
+        }
+
+        @include min-width($breakpoint-tablet) {
+            width: initial;
+            order: 1;
+            flex: 1;
+
+            h5 {
+                text-align: right;
+            }
+
+            ul {
+                border: none;
+                justify-content: flex-end;
+            }
+        }
+
+        li {
+            a {
+                font-size: 0;
+                display: inline-block;
+                width: 28px;
+                height: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: $color-brand-accent;
+                margin-bottom: 12px;
+                margin-top: 12px;
+                margin-right: 12px;
+                border-radius: 4px;
+                transition: transition(background-color);
+
+                &:hover {
+                    background: darken($color-brand-accent, 8%);
+                }
+
+                @include min-width($breakpoint-tablet) {
+                    margin-right: 0;
+                    margin-left: 12px;
+                }
+            }
+
+            a::before {
+                @include icon;
+                font-size: 18px;
+                color: $color-white;
+            }
+        }
+
+        .facebook a::before {
+            content: $icon-facebook-alt;
+        }
+
+        .twitter a::before {
+            content: $icon-twitter-alt;
+        }
+
+        .instagram a::before {
+            content: $icon-instagram;
+        }
+
+        .linkedin a::before {
+            content: $icon-linkedin-alt;
+        }
+
+        .youtube a::before {
+            content: $icon-youtube-alt;
+        }
+    }
+}

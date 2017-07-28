@@ -1,0 +1,23 @@
+body.Drafts {
+    .c_Content {
+        .BoxDiscussionFilter {
+            display: none;
+        }
+
+        .Item.Draft {
+            position: relative;
+
+            .DraftLink {
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 40px; // leave space for the close button
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}

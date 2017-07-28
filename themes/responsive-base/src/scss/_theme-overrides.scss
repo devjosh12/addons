@@ -1,0 +1,18 @@
+.Button {
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.c_Navigation--mobile {
+    background: #007C88;
+
+    .MeBox {
+        background: $color-brand-primary--dark;
+    }
+}
+
+.CategoriesModule-categoryWrap,
+.c_Navigation-linkContainer,
+.c_Header-cta,
+.c_MeBox--mobile .MeBox .SignInLinks a {
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}

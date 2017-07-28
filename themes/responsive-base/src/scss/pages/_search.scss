@@ -1,0 +1,96 @@
+body.Section-SearchResults {
+    .c_Content {
+        width: 100%;
+    }
+
+    .SearchBox {
+        display: none;
+    }
+
+    .AdvancedSearch {
+        padding-right: 0;
+
+        form > div {
+
+        }
+
+        .KeywordsWrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .bwrap {
+                right: 0;
+                top: 50%;
+                background: $color-brand-primary;
+                transform: translateY(-50%);
+                border-top-right-radius: $form-border-radius;
+                border-bottom-right-radius: $form-border-radius;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background: darken($color-brand-primary, 3%);
+                }
+
+                button {
+                    width: 50px;
+                    min-width: 50px;
+                    height: $form-input-height;
+                    background: none;
+                    border: none;
+                    color: $color-white;
+                    text-shadow: none;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .Handle {
+                right: 56px;
+                height: $form-input-height;
+
+                .Arrow {
+                    top: 60%;
+                    transform: translateY(-50%);
+                    bottom: initial;
+                    border-top-color: $color-brand-primary;
+                }
+            }
+        }
+        .AdvancedWrap {
+            @include clearfix;
+
+            @include min-width {
+                > .P {
+                    width: 50%;
+                    float: left;
+                    padding-right: 6px;
+
+                    &:nth-child(2n) {
+                        padding-right: 0;
+                        padding-left: 6px;
+                    }
+
+                    &:nth-child(5) {
+                        clear: left;
+                    }
+                }
+            }
+
+            > .P.Inline .SelectWrapper {
+                margin-bottom: 12px;
+            }
+
+            .CheckBoxLabel {
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+    }
+}

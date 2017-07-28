@@ -1,0 +1,15 @@
+{
+    "key": "responsive-base",
+    "name": "Responsive Theme Base",
+    "description": "A responsive theme base for Vanilla Forums. Great to build off of.",
+    "version": "1.0.0",
+    "author": [
+        {
+            "name": "Adam Charron",
+            "email": "adam.c@vanillaforums.com"
+        }
+    ],
+    "license": "GPLv2",
+    "type": "theme",
+    "buildProcessVersion": "1.0"
+}

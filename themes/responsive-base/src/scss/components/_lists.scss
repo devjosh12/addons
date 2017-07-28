@@ -1,0 +1,228 @@
+@mixin Item {
+    border: $color-border 1px solid;
+    background: none;
+    margin-bottom: 12px;
+    padding: 12px !important;
+    box-shadow: $shadow;
+    border-radius: $form-border-radius;
+
+    &:hover,
+    &:active {
+        background: rgba($color-black, 0.03);
+    }
+}
+
+.DataList,
+.MessageList {
+    .Item {
+        @include Item;
+    }
+
+    .Title a {
+        font-size: $list-title-size;
+    }
+
+    .Excerpt {
+        font-size: $font-base-size;
+    }
+
+    .Options {
+        display: flex;
+        flex-direction: row-reverse;
+        position: relative;
+        right: -5px;
+    }
+
+    .Bookmark,
+    .OptionsMenu {
+        height: $list-line-height;
+        width: $list-line-height;
+    }
+
+    .Bookmark::before,
+    .OptionsMenu .Arrow::before {
+        font-size: $list-title-size;
+        line-height: $list-title-size;
+    }
+
+    .Meta {
+        font-size: $font-base-size;
+    }
+
+    .Meta > *,
+    .AuthorInfo * {
+        font-size: $list-text-size;
+        line-height: 24px;
+        margin: 0;
+        padding: 0;
+        margin-right: 6px;
+        color: $color-black--text;
+    }
+
+    .MItem .MostRecent {
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            margin-right: 3px;
+        }
+    }
+
+    .Tag,
+    .NewCommentCount,
+    .HasNew,
+    .RoleTracker,
+    .MItem.Category a {
+        background: $color-brand-primary;
+        height: $list-line-height;
+        display: inline-block;
+        border-radius: $form-border-radius;
+        padding: 0 6px;
+        font-weight: normal;
+        color: $color-white;
+    }
+
+    .Tag,
+    .MItem {
+        margin-right: 6px;
+        margin-bottom: 6px;
+    }
+
+    .MItem.LastCommentDate,
+    .MItem.RSS {
+        display: none;
+    }
+
+    .MItem.LastDiscussionTitle {
+        margin-bottom: 0;
+        display: block;
+    }
+
+    .ChildCategories {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: $border;
+        padding-top: 6px;
+        margin-top: 6px;
+
+        b {
+            width: 100%;
+        }
+
+        .Comma {
+            margin-right: 3px;
+        }
+    }
+
+    a.Delete {
+        height: 24px;
+        width: 24px;
+        border-radius: 24px;
+        margin-top: -4px;
+        padding: 0;
+        padding-left: 1px;
+        padding-top: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $color-brand-accent;
+        color: $color-white;
+
+        &:hover {
+            background: darken($color-brand-accent, 4%);
+        }
+    }
+}
+
+.c_Frame-content .DataList .Meta {
+    margin-top: 6px;
+}
+
+.MessageList {
+    .ItemComment,
+    .ItemDiscussion {
+        padding: 0 !important;
+
+        .Options {
+            top: 14px;
+            right: 12px;
+        }
+
+        .Item-Header {
+            background: $color-brand-white;
+            margin: 0;
+            width: 100%;
+            padding: 12px;
+        }
+
+        .InlineTags {
+            padding: 0 12px;
+        }
+
+        .Reactions {
+            padding: 0 12px;
+            padding-bottom: 12px;
+
+            .Bullet {
+                display: none;
+            }
+
+            .ToggleFlyout {
+                display: inline-block;
+            }
+
+            .ReactButton,
+            .ReactSprite::before {
+                line-height: 24px;
+            }
+        }
+    }
+
+    .CommentHeader,
+    .AuthorWrap,
+    .Author {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .Username {
+        margin-right: 12px;
+    }
+
+    .ItemComment .CommentHeader {
+        padding: 6px 12px;
+        padding-right: 32px;
+
+        .MItem {
+            margin-bottom: 0;
+        }
+
+        .Meta {
+            margin-top: 0;
+        }
+
+        @include min-width {
+            .AuthorWrap {
+                flex: 1;
+            }
+        }
+
+        .ProfilePhoto {
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    .Comment .Options {
+        position: absolute;
+        right: 6px;
+        top: 0;
+        margin-top: 12px;
+    }
+}
+
+.ItemDiscussion .Meta {
+    font-size: inherit;
+    margin-top: 0;
+}

@@ -1,0 +1,54 @@
+/*----------  Variables  ----------*/
+
+@import "base/animations";
+@import "variables";
+
+/*----------  Base - This is the core of the theme. applies everywhere.  ----------*/
+@import "base/utilities";
+@import "base/typography";
+
+/*----------  Patches - DO NOT EDIT ----------*/
+
+@import "base/patches/core-patches";
+
+// Vanilla's core styles use SpriteSheets for all icons included.
+// Vanilla bundles its own font icons as well - Vanillicon.
+// This patches replace all sprite instances with font icons.
+// The core theme can't do this for backwards compatibility reasons.
+@import "base/patches/vanillicon-variables";
+@import "base/patches/vanillicon-general-patches";
+@import "base/patches/vanillicon-panel-patches";
+
+/*----------  Components - a small individual element  ----------*/
+
+@import "components/forms";
+@import "components/pager";
+@import "components/popup";
+@import "components/tables";
+@import "components/lists";
+@import "components/hamburger";
+@import "components/flyouts";
+@import "components/panel";
+@import "components/messages";
+@import "components/message";
+
+/*----------  Blocks - Discrete sections that appear on every page. May contain components ----------*/
+
+@import "blocks/frame";
+@import "blocks/navigation";
+@import "blocks/header";
+@import "blocks/footer";
+
+/*----------  Pages - Page specific styles ----------*/
+
+@import "pages/profile";
+// @import "pages/discussion";
+// @import "pages/categories";
+@import "pages/groups";
+@import "pages/search";
+@import "pages/drafts";
+// @import "pages/conversations";
+@import "pages/post";
+// @import "pages/drafts";
+@import "pages/bestof";
+// @import "pages/entry";

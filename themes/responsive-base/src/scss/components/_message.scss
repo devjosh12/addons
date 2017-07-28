@@ -1,0 +1,46 @@
+.Message {
+    padding: 12px;
+    margin: 0;
+
+    p {
+        margin: 0;
+    }
+
+    pre {
+        background: $message-code-background;
+        color: $message-code-color;
+
+        code {
+            background: none;
+        }
+    }
+
+    strong,
+    em,
+    p,
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: $message-text-color;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    h1,
+    h2 {
+        color: $message-text-color;
+    }
+
+    img {
+        max-height: 80vh;
+        max-width: 100%;
+        height: auto;
+    }
+}

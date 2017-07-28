@@ -1,0 +1,418 @@
+body.Group {
+    .c_Content {
+        width: 100%;
+    }
+
+    .DataList .ItemContent {
+        padding-left: 0;
+    }
+
+    .PageControls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        min-height: initial;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .PhotoGrid .MoreWrap {
+        width: 100%;
+        display: inline-block;
+        text-align: right;
+    }
+
+    .DateTile {
+        border-radius: 3px;
+    }
+
+    .DataList .Event {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+
+        .DateTile {
+            margin-right: 60%;
+            margin-bottom: 12px;
+
+            @include min-width {
+                margin-bottom: 0;
+            }
+        }
+
+        .Title {
+            a {
+                position: absolute;
+                display: block;
+                line-height: 40px;
+                top: 12px;
+                left: 60px;
+                right: 40px;
+                display: block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                @include min-width {
+                    max-width: calc(60% - 24px);
+                    right: initial;
+                }
+            }
+        }
+
+        .Options {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: static;
+            width: 100%;
+
+            @include min-width {
+                width: initial;
+            }
+
+            .OptionsMenu {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-top: 1px;
+                position: absolute;
+                top: 18px;
+                right: 12px;
+
+                @include min-width {
+                    position: relative;
+                    top: 0;
+                    right: 0;
+                    margin-right: 6px;
+                }
+            }
+
+            .ButtonGroup {
+                margin-bottom: 3px;
+            }
+        }
+
+        .ItemContent {
+            width: 100%;
+        }
+
+        .EventDescription {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .DataTable {
+
+        td {
+            padding: 4px 0;
+        }
+        .EventTitle > .Wrap {
+            position: relative;
+
+            .DateTile {
+                margin-left: 0;
+            }
+
+            .Title-Wrapper,
+            .Description {
+                margin-left: 56px;
+                margin-right: 72px;
+            }
+
+            .Options {
+                position: absolute;
+                right: 0;
+                display: flex;
+                align-items: center;
+                top: 0;
+                bottom: 0;
+                justify-content: center;
+            }
+
+            .Button {
+                height: auto;
+                width: auto;
+            }
+
+            .Sprite {
+                display: none;
+            }
+        }
+    }
+
+    @include max-width {
+        .EventList .DataTable {
+            thead {
+                display: none;
+            }
+
+            td {
+                display: block;
+                border: none;
+            }
+
+            td.BlockColumn.BlockColumn {
+                width: auto;
+                margin-left: 56px;
+                padding-top: 0;
+            }
+
+            tr {
+                @include Item;
+                display: block;
+            }
+
+            .Wrap {
+                padding-left: 0;
+            }
+        }
+
+        .DataTable .EventTitle > .Wrap {
+            .Options {
+                bottom: initial;
+            }
+
+            .Title-Wrapper {
+                padding-bottom: 8px;
+            }
+
+            .EventDescription {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+body.Section-Group .Group-Header,
+body.Section-Event .Group-Header {
+    @include gutter(true);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $content-padding-top !important;
+
+    @include max-width($breakpoint-tablet) {
+        width: calc(100% + #{$content-padding-left + $content-padding-right});
+        margin-left: -$content-padding-left;
+        margin-top: -$content-padding-top;
+    }
+
+    .Group-Banner {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: initial;
+        background-position: center;
+        background-size: cover;
+        margin: 0;
+        filter: brightness(90%);
+        border-radius: $form-border-radius;
+        @include max-width($breakpoint-tablet) {
+            border-radius: 0;
+        }
+    }
+
+    &.NoBanner {
+        background: $color-brand-primary--dark;
+    }
+
+    .Photo {
+        position: relative;
+        top: initial;
+        bottom: initial;
+        left: initial;
+        right: initial;
+        margin: 0;
+        flex: 50%;
+    }
+
+    > * {
+        position: relative;
+        float: none;
+    }
+
+    .Group-Icon {
+        max-width: 80px;
+        max-height: 80px;
+        border: 2px rgba($color-white, 0.8) solid;
+        border-radius: $border-radius;
+        background: $color-white;
+    }
+
+    .ChangePicture {
+        width: 80px;
+
+        > * {
+            display: block;
+            width: 100%;
+        }
+
+        .icon {
+            margin: 0;
+            margin-bottom: 6px;
+        }
+    }
+
+    .Group-Title a,
+    p,
+    .MItem span,
+    .MItem a {
+        color: $color-white;
+    }
+
+    .Meta {
+        border-top: $border;
+        border-color: rgba($color-white, 0.1);
+        padding-top: $dimen-unit * 2;
+        margin-top: $dimen-unit;
+    }
+
+    .MItem {
+        margin: 0;
+        margin-right: $dimen-unit * 2;
+        line-height: 20px;
+
+        .label {
+            font-weight: bold;
+        }
+
+        .value * {
+            font-weight: normal;
+        }
+    }
+
+    .Group-Title a {
+        font-weight: bold;
+        padding-top: $dimen-unit;
+    }
+
+    .Group-Header-Info {
+        width: 100%;
+    }
+}
+
+body.Section-Event,
+body.Section-GroupList {
+    .c_Content {
+        width: 100%;
+    }
+
+    .c_Panel {
+        display: none;
+    }
+
+    .Attendees.Attendees.Attendees {
+        h3 {
+            display: flex;
+            align-items: center;
+            font-size: $form-button-font-size;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            margin-top: 6px;
+
+            &::after {
+                content: "";
+                height: 1px;
+                margin-top: 4px;
+                margin-left: 12px;
+                display: block;
+                flex: 1;
+                background: $color-border;
+            }
+
+            .H {
+                clear: both;
+            }
+        }
+    }
+}
+
+body.Section-GroupList {
+    .c_Content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% + 12px);
+
+        > .Button {
+            width: 120px;
+            margin-right: 12px;
+        }
+
+        > h1 {
+            display: block;
+            width: calc(100% - 120px - 12px);
+        }
+
+        .media-list-container {
+            min-width: 300px;
+            flex: 1;
+            padding-right: 12px;
+
+            .MItem {
+                white-space: initial;
+            }
+
+            .ItemContent {
+                padding-left: 0;
+            }
+
+            .PhotoWrap {
+                margin-right: 12px;
+            }
+        }
+    }
+}
+
+.Section-Group.Section-Members {
+    .c_Content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .Group-Header,
+    .c_Content > form {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    .Group-Header {
+        border-radius: $form-border-radius;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        .Group-Header-Info {
+            display: inline-block;
+            width: initial;
+            order: -1;
+        }
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .media-list-container {
+        flex: 1;
+        min-width: 300px;
+        padding-right: 12px;
+
+        .PhotoWrap {
+            margin-right: 12px;
+        }
+    }
+}
