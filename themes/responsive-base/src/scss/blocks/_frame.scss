@@ -2,8 +2,15 @@
     @if ($frame-stick-footer) {
         display: flex;
         flex-direction: column;
+        min-height: 100vh;
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            /* IE10+ CSS styles go here */
+            min-height: initial;
+            height: 100vh;
+            overflow: visible;
+        }
     }
-    min-height: 100vh;
     background-color: $frame-background-color;
     background-image: $frame-background-image;
     background-size: $frame-background-size;
