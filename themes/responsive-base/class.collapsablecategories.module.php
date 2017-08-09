@@ -53,7 +53,6 @@ class CollapsableCategoriesModule extends Gdn_Module {
                 'maxDepth' => $this->endDepth
             ]);
 
-        // $this->filterDepth($categories, $this->startDepth, $this->endDepth);
         $categories = $this->getCategoriesWithCorrectedUrls($categories);
 
         if (c('Categories.Accordian.ShowHeading', true)) {
@@ -69,16 +68,13 @@ class CollapsableCategoriesModule extends Gdn_Module {
         return $categories;
     }
 
-    public function filterDepth(&$Categories, $startDepth, $endDepth) {
-        if ($startDepth != 1 || $endDepth) {
-            foreach ($Categories as $i => $category) {
-                if (val('Depth', $category) < $startDepth || ($endDepth && val('Depth', $category) > $endDepth)) {
-                    unset($Categories[$i]);
-                }
-            }
-        }
-    }
-
+    /**
+     * Restructure the URLs if subcommunities are enabled
+     *
+     * @param array $categories An array of categories to remap
+     *
+     * @return array
+     */
     public function getCategoriesWithCorrectedUrls($categories) {
         $results = [];
         if (class_exists('SubcommunitiesPlugin')) {
@@ -98,6 +94,13 @@ class CollapsableCategoriesModule extends Gdn_Module {
         return $results;
     }
 
+    /**
+     * If subcommunities are enabled we need make subcommuntiy URLs for the dropdown
+     *
+     * @param array $category The category to get the URL of
+     *
+     * @return string The URL in the form /[subcommunity]/categories/category or
+     */
     public function getSubcommunityUrlForCategory($category) {
         if (class_exists('SubcommunitiesPlugin')) {
             if (val('Depth', $category) === 1) {
