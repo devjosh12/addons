@@ -11,6 +11,13 @@
         }
     }
 
+    .Button.NewDiscussion {
+        margin: 0 auto;
+        display: block;
+        max-width: 280px;
+        line-height: $form-button-height;
+    }
+
     @include min-width {
         visibility: visible;
         overflow: visible !important;
@@ -140,7 +147,7 @@
     }
 
     .c_Navigation-link,
-    .CategoriesModule-category.isDepth-0 > .CategoriesModule-categoryWrap .CategoriesModule-title{
+    .CategoriesModule-category.isDepth-top > .CategoriesModule-categoryWrap .CategoriesModule-title{
         font-size: $navigation-item-font-size;
         font-weight: $navigation-item-font-weight;
         line-height: $navigation-item-height;
@@ -181,7 +188,7 @@
 
     @include min-width {
         .c_Navigation-linkContainer,
-        .CategoriesModule-category.isDepth-0 > .CategoriesModule-categoryWrap {
+        .CategoriesModule-category.isDepth-top > .CategoriesModule-categoryWrap {
             height: initial;
             padding: $navigation-item-padding-vertical $navigation-item-padding-horizontal;
             height: $navigation-item-height;
@@ -291,12 +298,11 @@
             transition: max-height $animation-easing $animation-duration;
         }
 
-        .isDepth-0 .isDepth-1,
-        .isDepth-1 .CategoriesModule-category {
+        .isDepth-top .CategoriesModule-category {
             background: rgba($color-black, 0.15);
         }
 
-        .isDepth-0 > .CategoriesModule-children {
+        .isDepth-top > .CategoriesModule-children {
             @include min-width {
                 position: absolute;
                 // z-index: 20;
@@ -314,9 +320,9 @@
 
                 transition: $transition;
 
-                @include min-width($breakpoint-tablet) {
-                    display: none !important;
-                }
+                // @include min-width($breakpoint-tablet) {
+                //     display: none !important;
+                // }
 
                 &[data-state= "OPEN"] {
                     transition-delay: 0s;

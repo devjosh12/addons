@@ -23,6 +23,8 @@
     &-logo {
         padding-top: $header-padding;
         padding-bottom: $header-padding;
+        display: flex;
+        align-items: center;
 
         img {
             max-height: $header-logo-max-height;
