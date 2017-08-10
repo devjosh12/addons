@@ -19,7 +19,7 @@
 @import "base/patches/vanillicon-general-patches";
 @import "base/patches/vanillicon-panel-patches";
 
-/*----------  Components - a small individual element  ----------*/
+/*----------  Components - small individual elements  ----------*/
 
 @import "components/forms";
 @import "components/pager";
@@ -42,13 +42,9 @@
 /*----------  Pages - Page specific styles ----------*/
 
 @import "pages/profile";
-// @import "pages/discussion";
-// @import "pages/categories";
 @import "pages/groups";
 @import "pages/search";
 @import "pages/drafts";
-// @import "pages/conversations";
 @import "pages/post";
-// @import "pages/drafts";
 @import "pages/bestof";
-// @import "pages/entry";
+@import "pages/entry";

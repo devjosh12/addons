@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="c_Frame-footer">r
+        <div class="c_Frame-footer">
         </div>
     </div>
 </body>

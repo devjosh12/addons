@@ -92,6 +92,7 @@
                 line-height: 28px;
                 display: inline-block;
                 padding: 6px;
+                font-weight: bold;
                 padding-top: 7px;
                 color: $color-brand-primary;
                 border-radius: $form-border-radius;
@@ -174,8 +175,8 @@
 
     &-link,
     &-links a {
-        color: $color-black--text;
-        font-weight: bold;
+        color: #707070;
+        font-weight: normal;
         transition: transition(color);
 
         &:hover {

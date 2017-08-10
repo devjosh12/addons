@@ -76,6 +76,7 @@ body.Section-Profile {
 
         .c_Profile-username {
             margin: 0;
+            margin-top: 8px;
         }
 
         .c_Profile-rank {
@@ -111,13 +112,17 @@ body.Section-Profile {
         }
     }
 
+    .About.P {
+        clear: both;
+    }
+
+    .ProfileOptions {
+        margin-bottom: 12px;
+    }
+
     @include max-width($breakpoint-tablet) {
         .c_Panel--top {
             display: block;
-        }
-
-        .About.P {
-            clear: left;
         }
 
         .User h1 {

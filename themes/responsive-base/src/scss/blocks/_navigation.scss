@@ -26,6 +26,10 @@
         max-height: initial !important;
     }
 
+    @include min-width($breakpoint-tablet) {
+        padding: 6px 0;
+    }
+
     &-buttons {
         display: flex;
         justify-content: center;

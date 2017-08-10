@@ -189,56 +189,39 @@
         }
 
         li {
-            a {
-                font-size: 0;
-                display: inline-block;
+            position: relative;
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            margin-bottom: 12px;
+            margin-top: 12px;
+            margin-right: 12px;
+
+            @include min-width($breakpoint-tablet) {
+                margin-right: 0;
+                margin-left: 12px;
+            }
+
+            img {
                 width: 28px;
                 height: 28px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: $color-brand-accent;
-                margin-bottom: 12px;
-                margin-top: 12px;
-                margin-right: 12px;
                 border-radius: 4px;
+            }
+
+            a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                font-size: 0;
                 transition: transition(background-color);
 
                 &:hover {
-                    background: darken($color-brand-accent, 8%);
-                }
-
-                @include min-width($breakpoint-tablet) {
-                    margin-right: 0;
-                    margin-left: 12px;
+                    background: rgba($color-black, 0.08);
                 }
             }
-
-            a::before {
-                @include icon;
-                font-size: 18px;
-                color: $color-white;
-            }
-        }
-
-        .facebook a::before {
-            content: $icon-facebook-alt;
-        }
-
-        .twitter a::before {
-            content: $icon-twitter-alt;
-        }
-
-        .instagram a::before {
-            content: $icon-instagram;
-        }
-
-        .linkedin a::before {
-            content: $icon-linkedin-alt;
-        }
-
-        .youtube a::before {
-            content: $icon-youtube-alt;
         }
     }
 }

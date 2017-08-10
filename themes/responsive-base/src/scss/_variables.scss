@@ -122,8 +122,8 @@ $navigation-item-divider-width: 2px !default;
 $navigation-item-divider-height: $navigation-item-height / 2 !default;
 $navigation-item-divider-color: rgba($color-white, 0.2) !default;
 $navigation-item-divider-margin: 12px !default;
-$navigation-item-top-radius: 0 !default;
-$navigation-item-bottom-radius: 0 !default;
+$navigation-item-top-radius: $border-radius !default;
+$navigation-item-bottom-radius: $border-radius !default;
 
 /*----------  Body  ----------*/
 
@@ -139,6 +139,7 @@ $frame-details-padding-vertical: 0 !default;
 $frame-details-padding-horizontal: 0 !default;
 $frame-details-padding: $frame-details-padding-vertical $frame-details-padding-horizontal !default;
 $frame-stick-footer: true !default;
+$frame-panel-width: 294px !default;
 
 /*----------  Content  ----------*/
 

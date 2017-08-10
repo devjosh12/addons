@@ -72,7 +72,7 @@
     }
 
     .SearchBox {
-        max-width: calc(25% - 18px);
+        max-width: calc(#{$frame-panel-width} - 18px);
         width: 100%;
         margin-bottom: 12px;
     }
@@ -105,12 +105,12 @@
 
 @include min-width($breakpoint-tablet) {
     .c_Content {
-        width: 75%;
+        width: calc(100% - #{$frame-panel-width});
         float: left;
     }
 
     .c_Panel {
-        width: 25%;
+        width: $frame-panel-width;
         float: right;
         padding-left: 18px;
     }
