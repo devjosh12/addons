@@ -82,10 +82,25 @@
         color: $color-white;
     }
 
+    .MItem.Category a {
+        background: none;
+        border: 1px solid $color-brand-primary;
+        color: $color-brand-primary;
+        line-height: $list-line-height - 1px;
+        transition: transition(background), transition(color);
+        transition-duration: $animation-duration / 2;
+
+        &:hover {
+            background: $color-brand-primary;
+            color: $color-white;
+        }
+    }
+
     .Tag,
     .MItem {
         margin-right: 6px;
         margin-bottom: 6px;
+        display: inline-block;
     }
 
     .MItem.LastCommentDate,

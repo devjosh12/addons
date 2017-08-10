@@ -1,4 +1,4 @@
-.FormWrapper {
+body.Post .FormWrapper {
     padding: 12px;
     background: $color-brand-white;
     border: $form-border-radius;
@@ -17,14 +17,15 @@
 
     .Buttons {
         display: flex;
+        flex-direction: row-reverse;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: flex-start;
 
         .Button {
             margin-bottom: 6px;
-            margin-right: 6px;
-            margin-left: 0;
+            margin-left: 6px;
+            margin-right: 0;
             margin-top: 0;
         }
     }

@@ -64,6 +64,10 @@
         padding-top: $header-mebox-padding-top;
         padding-bottom: $header-mebox-padding-bottom;
 
+        .MeBox > .PhotoWrap {
+            margin-right: 6px + $header-mebox-extra-spacing;
+        }
+
         .MeButton.FlyoutButton,
         .WhoIs > .Username {
             transition: transition(color);
@@ -125,9 +129,13 @@
                 display: block;
                 height: 18px;
                 width: 2px;
-                margin: 0 12px;
+                margin: 0 (12px) 0 (18px);
                 background: $header-mebox-color;
             }
+        }
+
+        .MeBox .ToggleFlyout {
+            margin-left: $header-mebox-extra-spacing;
         }
     }
 
@@ -135,6 +143,7 @@
         @include min-width {
             display: flex;
             align-items: flex-start;
+            justify-content: flex-end;
         }
     }
 

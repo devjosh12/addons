@@ -1,6 +1,5 @@
 .c_Panel--bottom {
     @include max-width($breakpoint-tablet) {
-        .BoxFilter,
         .BoxNewDiscussion,
         .BoxCategories {
             display: none;
@@ -31,7 +30,8 @@
         border-bottom: $border;
     }
 
-    .ButtonGroup.Multi {
+    .ButtonGroup.Multi,
+    .Button.BigButton {
         width: 100%;
         padding: 0;
     }

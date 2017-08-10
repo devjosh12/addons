@@ -63,6 +63,17 @@ select:-moz-focusring {
     }
 }
 
+.FormTitleWrapper,
+.FormWrapper {
+    .Buttons .Button {
+        @include Button($color-brand-accent, $color-white);
+    }
+
+    .Buttons .Button.Primary {
+        @include Button($color-brand-primary, $color-white);
+    }
+}
+
 .ActivityFormWrap {
     margin-bottom: 12px;
 }

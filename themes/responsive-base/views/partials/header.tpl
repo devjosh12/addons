@@ -8,33 +8,29 @@
         </div>
         <span class='c_Navigation-divider'></span>"
     }
-    <div class="c_Header-row">
-        <a href="{home_link format="%url"}" class="c_Header-logo">
-            {logo}
-        </a>
-        <div class="c_Header-right">
-            <div class="c_Header-links">
-                <a href="" class="c_Header-link isLowPriority">{t c="About Us"}</a>
-                <span class="c_Header-divider"></span>
-                <a href="" class="c_Header-link isLowPriority">{t c="Contact"}</a>
-                <span class="c_Header-divider"></span>
-                <a href="{t c="Link-ovarian"}" class="c_Header-link">{t c='ovariancanada.org'}</a>
-                <span class="c_Header-divider"></span>
-                <div class="c_Header-languageSelector">
-                    {module name="SubcommunityToggleModule"}
+    <div class="c_Container">
+        <div class="c_Header-row">
+            <a href="{home_link format="%url"}" class="c_Header-logo">
+                {logo}
+            </a>
+            <div class="c_Header-right">
+                <div class="c_Header-links">
+                    <div class="c_Header-languageSelector">
+                        {module name="SubcommunityToggleModule"}
+                    </div>
+                    <div class="c_Header-ctaContainer">
+                        <a href="{t c="Link-donate"}">
+                            <button class="c_Header-cta">{t c="Donate"}</button>
+                        </a>
+                    </div>
                 </div>
-                <div class="c_Header-ctaContainer">
-                    <a href="{t c="Link-donate"}">
-                        <button class="c_Header-cta">{t c="Donate"}</button>
-                    </a>
+                <div class="c_MeBox--header">
+                    {module name="MeModule" CssClass="FlyoutRight"}
                 </div>
             </div>
-            <div class="c_MeBox--header">
-                {module name="MeModule" CssClass="FlyoutRight"}
+            <div class="c_Hamburger">
+                {include file="partials/hamburger.html"}
             </div>
-        </div>
-        <div class="c_Hamburger">
-            {include file="partials/hamburger.html"}
         </div>
     </div>
     <nav id="navdrawer" class="c_Navigation">

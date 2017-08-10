@@ -54,22 +54,22 @@
 
     li.Activity a::before {
         @include icon;
-        content: $icon-group;
+        content: $icon-time;
     }
 
     li.Notifications a::before {
         @include icon;
-        content: $icon-bell;
+        content: $icon-globe;
     }
 
     li.Inbox a::before {
         @include icon;
-        content: $icon-mail;
+        content: $icon-inbox;
     }
 
     li.Comments a::before {
         @include icon;
-        content: $icon-comments;
+        content: $icon-comment;
     }
 
     li.Reactions-BestOf a::before {

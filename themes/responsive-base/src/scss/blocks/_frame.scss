@@ -72,7 +72,7 @@
     }
 
     .SearchBox {
-        max-width: 400px;
+        max-width: calc(25% - 18px);
         width: 100%;
         margin-bottom: 12px;
     }

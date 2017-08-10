@@ -67,7 +67,7 @@ $font-heading-size--small:     24px !default;
 
 $mebox-photo-size: 24px !default;
 $mebox-color: $color-brand-primary !default;
-$mebox-color-hover: $color-white !default;
+$mebox-color-hover: darken($color-brand-primary, 0.03) !default;
 $mebox-padding-top: 5px !default;
 $mebox-padding-bottom: 0 !default;
 $mebox-item-background: none !default;
@@ -103,6 +103,7 @@ $header-mebox-padding-bottom: $mebox-padding-bottom !default;
 $header-mebox-photo-size: $mebox-photo-size !default;
 $header-mebox-item-background: $mebox-item-background !default;
 $header-mebox-item-background-hover: $mebox-item-background-hover !default;
+$header-mebox-extra-spacing: 6px !default;
 
 $button-max-width: 360px;
 
@@ -148,6 +149,11 @@ $content-padding-right: $content-padding-horizontal !default;
 $content-padding-top: $content-padding-vertical !default;
 $content-padding-bottom: $content-padding-vertical !default;
 $content-background-color: $color-white !default;
+
+
+/*----------  Profile Content  ----------*/
+
+$profile-section-padding: $frame-content-padding !default;
 
 /*----------  Crumbs  ----------*/
 
