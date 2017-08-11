@@ -66,6 +66,7 @@
     }
 
     &.isReadyToTransition {
+        will-change: max-height;
         transition: max-height $animation-easing $animation-duration * 2;
 
         &[data-state= 'CLOSED'] {
@@ -299,6 +300,7 @@
 
         &-children {
             overflow: hidden;
+            will-change: max-height;
             transition: max-height $animation-easing $animation-duration;
         }
 

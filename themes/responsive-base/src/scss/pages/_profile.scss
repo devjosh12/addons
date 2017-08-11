@@ -87,12 +87,12 @@ body.Section-Profile {
 
     @include min-width($breakpoint-tablet) {
         .c_Content {
-            width: calc(100% - 258px);
+            width: calc(100% - #{$frame-panel-width} - 18px);
             float: left;
         }
 
         .c_Panel {
-            width: 240px;
+            width: $frame-panel-width;
             float: right;
             padding: 18px;
             margin-left: 18px;
@@ -106,6 +106,10 @@ body.Section-Profile {
                 color: darken($color-black--text, 20%);
             }
 
+            .ChangePicture:hover {
+                color: $color-white;
+            }
+
             .Active > a:hover {
                 color: $color-brand-primary;
             }
@@ -117,7 +121,7 @@ body.Section-Profile {
     }
 
     .ProfileOptions {
-        margin-bottom: 12px;
+
     }
 
     @include max-width($breakpoint-tablet) {
