@@ -70,10 +70,6 @@ body.Section-Profile {
             }
         }
 
-        .c_Profile-name {
-            margin-left: 12px;
-        }
-
         .c_Profile-username {
             margin: 0;
             margin-top: 8px;
@@ -121,7 +117,6 @@ body.Section-Profile {
     }
 
     .ProfileOptions {
-
     }
 
     @include max-width($breakpoint-tablet) {
@@ -260,6 +255,75 @@ body.Section-Profile {
 }
 
 body.Section-EditProfile {
+    .FormTitleWrapper form {
+        background: none !important;
+
+        li {
+            @include clearfix;
+            width: 100%;
+
+            input {
+                width: 100%;
+            }
+        }
+
+        .CustomProfileFieldLabel,
+        .CustomProfileFieldValue {
+            max-width: calc(50% - 9px);
+            margin-right: 18px;
+            margin-top: 12px;
+            float: left;
+
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include min-width($breakpoint-tablet) {
+            > div {
+                width: calc(100% + 18px);
+            }
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            li {
+                width: initial;
+                min-width: calc(50% - 18px);
+                margin-right: 18px;
+            }
+
+            li > input {
+                width: 100%;
+            }
+
+            .User-ConfirmEmail + li {
+                width: 100%;
+            }
+
+            .CustomProfileFieldLabel,
+            .CustomProfileFieldValue {
+                width: 1200px;
+            }
+        }
+
+        .CheckBoxLabel input {
+            width: auto;
+        }
+
+        li.User-Avatar {
+            order: 100;
+            width: 100%;
+            margin-right: 0;
+        }
+
+        .Button {
+            margin-top: 12px;
+        }
+    }
+
     &.signature {
         .FormTitleWrapper form li {
             width: 100%;

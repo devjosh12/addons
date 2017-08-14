@@ -232,41 +232,6 @@
     }
 }
 
-body.Section-EditProfile {
-    .FormTitleWrapper form {
-        background: none !important;
-        padding: 18px !important;
-
-        > div {
-            margin: -2%;
-        }
-
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        li {
-            width: 48%;
-            margin-right: 2%;
-        }
-
-        li > input {
-            width: 100%;
-        }
-
-        li.User-Avatar {
-            order: 100;
-            width: 100%;
-            margin-right: 0;
-        }
-
-        .Button {
-            margin-top: 12px;
-        }
-    }
-}
-
 .MultipleEntryMethods {
     flex-wrap: wrap;
 }
