@@ -72,6 +72,10 @@ select:-moz-focusring {
     .Buttons .Button.Primary {
         @include Button($color-brand-primary, $color-white);
     }
+
+    .Buttons .Button.Hidden {
+        display: none;
+    }
 }
 
 .ActivityFormWrap {
