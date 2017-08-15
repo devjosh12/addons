@@ -1,11 +1,6 @@
 export function fireEvent(element, eventName, options) {
-    var event;
-    if (window.CustomEvent) {
-        event = new CustomEvent(eventName, options);
-    } else {
-        event = document.createEvent("CustomEvent");
-        event.initCustomEvent(eventName, true, true, options);
-    }
+    var event = document.createEvent("CustomEvent");
+    event.initCustomEvent(eventName, true, true, options);
     element.dispatchEvent(event);
 }
 

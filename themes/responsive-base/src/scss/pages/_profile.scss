@@ -24,7 +24,6 @@ body.Section-Profile {
         .c_Panel--top {
             display: flex;
             align-items: center;
-            flex: 1;
             margin-bottom: 12px;
             margin-top: 6px;
 
@@ -42,6 +41,7 @@ body.Section-Profile {
                 height: 80px;
                 width: auto;
                 float: left;
+                margin-right: 12px;
 
                 img {
                     height: 80px;
@@ -52,6 +52,12 @@ body.Section-Profile {
 
         .ProfileOptions {
             float: none;
+            flex: 1;
+            text-align: right;
+
+            .Dropdown {
+                text-align: left;
+            }
 
             @include max-width($breakpoint-tablet) {
                 margin: 0;
@@ -151,6 +157,10 @@ body.Section-Profile {
 
     .User > #Status {
         display: none;
+    }
+
+    .User .DismissMessage {
+        margin-top: 12px;
     }
 
     .Profile {

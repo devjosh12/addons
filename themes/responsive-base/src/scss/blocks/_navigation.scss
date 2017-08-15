@@ -39,7 +39,7 @@
         margin-bottom: 12px;
 
         .Button {
-            background: none !important;;
+            background: none !important;
             border: none !important;
         }
 
@@ -101,7 +101,7 @@
 
             .Bullet {
                 font-size: 0;
-                width: 20px
+                width: 20px;
             }
         }
 
@@ -152,7 +152,8 @@
     }
 
     .c_Navigation-link,
-    .CategoriesModule-category.isDepth-top > .CategoriesModule-categoryWrap .CategoriesModule-title{
+    .CategoriesModule-category.isDepth-top
+        > .CategoriesModule-categoryWrap .CategoriesModule-title {
         font-size: $navigation-item-font-size;
         font-weight: $navigation-item-font-weight;
         line-height: $navigation-item-height;
@@ -164,7 +165,8 @@
         display: flex;
         align-items: center;
         height: 52px;
-        padding: $navigation-item-padding-vertical $navigation-item-padding-horizontal;
+        padding: $navigation-item-padding-vertical
+            $navigation-item-padding-horizontal;
 
         a,
         .CategoriesModule-chevron {
@@ -193,9 +195,11 @@
 
     @include min-width {
         .c_Navigation-linkContainer,
-        .CategoriesModule-category.isDepth-top > .CategoriesModule-categoryWrap {
+        .CategoriesModule-category.isDepth-top
+            > .CategoriesModule-categoryWrap {
             height: initial;
-            padding: $navigation-item-padding-vertical $navigation-item-padding-horizontal;
+            padding: $navigation-item-padding-vertical
+                $navigation-item-padding-horizontal;
             height: $navigation-item-height;
             border: none;
             border-top-left-radius: $navigation-item-top-radius;

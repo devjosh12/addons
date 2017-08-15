@@ -84,6 +84,9 @@
     @include max-width($breakpoint-tablet) {
         height: 100vh;
         overflow: hidden;
+        position: fixed;
+        left: 0;
+        right: 0;
     }
 }
 

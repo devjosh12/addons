@@ -14,8 +14,8 @@ const STATE_OPEN = "OPEN";
 export function setupHeader() {
     initNavigationDropdown();
     initCategoriesModule();
-    initNavigationVisibility();
     fireEvent(window, EVENT_COLLAPSE_DEFAULTS);
+    initNavigationVisibility();
 }
 
 function initNavigationListeners() {
@@ -72,7 +72,6 @@ function initCategoriesModule() {
  * This overrides the baked in hiding styles.
  */
 function initNavigationVisibility() {
-    console.log("init nav visibiltiy");
     const $nav = $("#navdrawer");
     $nav.css({ position: "relative", visibility: "visible" });
     $nav.addClass('isReadyToTransition');
