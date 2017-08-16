@@ -10,8 +10,21 @@ const EVENT_COLLAPSE_DEFAULTS = "vanilla_collapse_defaults";
 // Strings to represent the current state in a data-attribute
 const STATE_CLOSED = "CLOSED";
 const STATE_OPEN = "OPEN";
+const RESIZE_THROTTLE_DURATION = 200;
 
 export function setupHeader() {
+    initHeader();
+
+    // Watch for window resizing and throttle the event listener
+    var resizeTimer;
+    $(window).resize(() => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initHeader, 250);
+    });
+}
+
+function initHeader() {
+    resetNavigation();
     initNavigationDropdown();
     initCategoriesModule();
     fireEvent(window, EVENT_COLLAPSE_DEFAULTS);
@@ -41,8 +54,8 @@ function initNavigationListeners() {
  * Initialize the mobile menu open/close listeners
  */
 function initNavigationDropdown() {
-    var $menuButton = $("#menu-button");
-    var $menuList = $("#navdrawer");
+    const $menuButton = $("#menu-button");
+    const $menuList = $("#navdrawer");
     setupBetterHeightTransitions($menuList, $menuButton, true);
 }
 
@@ -65,11 +78,23 @@ function initCategoriesModule() {
 }
 
 /**
- * Initialzie the navigation menus visibility.
- *
- * We initially hide all of the nav items while the measure themselves,
- * then move to their initial states. By default they are hidden,
- * This overrides the baked in hiding styles.
+ * Hide the navigation menu so that it's not in the way as we calculate the sizes
+ */
+function resetNavigation() {
+    const $nav = $("#navdrawer");
+    resetBetterHeightTransition($nav);
+
+    const $toggles = $("#menu-button.isToggled, #navdrawer .isToggled");
+    $toggles.removeClass('isToggled');
+
+    const $children = $(".CategoriesModule-children");
+    $children.each((index, child) => {
+        resetBetterHeightTransition($(child));
+    })
+}
+
+/**
+ * Show the navigation menu
  */
 function initNavigationVisibility() {
     const $nav = $("#navdrawer");
@@ -117,6 +142,14 @@ function applyNewElementMeasurements($elementToMeasure, toState) {
     $elementToMeasure.attr("data-state", toState);
 }
 
+function resetBetterHeightTransition($element) {
+    $element.removeClass('isReadyToTransition');
+    $element.removeAttr('style');
+    $element.removeAttr("data-true-height");
+    $element.removeAttr("data-valid-open-state");
+    $element.removeAttr("data-state");
+}
+
 /**
  * Setup a more accurate max-height transition on an element to be triggered by another element.
  *
@@ -131,6 +164,8 @@ function setupBetterHeightTransitions(
 ) {
     applyNewElementMeasurements($elementToMeasure, STATE_OPEN);
 
+    // Clear existing click listeners and then set them
+    $triggeringElement.off();
     $triggeringElement.on("click", () => {
         const elementState = $elementToMeasure.attr("data-state");
 

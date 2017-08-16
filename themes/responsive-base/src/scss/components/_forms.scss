@@ -14,6 +14,7 @@ select,
     background: $color-white;
     padding: $form-input-padding-vertical 10px;
     margin: 0;
+    width: 100%;
     padding-top: $font-top-offset;
     padding-bottom: $font-bottom-offset;
 
@@ -26,9 +27,14 @@ select,
     }
 }
 
+::-ms-clear {
+    display: none;
+}
+
 textarea {
     padding-top: 3px;
     padding-bottom: 3px;
+    overflow: auto;
 }
 
 select,
@@ -54,6 +60,10 @@ select:-moz-focusring {
     text-shadow: 0 0 0 #000;
 }
 
+select::-ms-expand {
+    display: none;
+}
+
 .FormWrapper {
     padding: 12px;
     border-radius: $form-border-radius;
@@ -65,6 +75,19 @@ select:-moz-focusring {
 
 .FormTitleWrapper,
 .FormWrapper {
+    .Buttons .Button,
+    .Buttons .Back {
+        margin-right: 0;
+        padding-right: 0;
+        margin-bottom: 8px;
+        margin-left: 4px;
+    }
+
+    .Buttons .Back {
+        font-size: $font-base-size;
+        line-height: $form-button-height;
+    }
+
     .Buttons .Button {
         @include Button($color-brand-accent, $color-white);
     }
@@ -142,6 +165,10 @@ div.token-input-dropdown {
 .editor {
     a {
         cursor: pointer;
+    }
+
+    .icon-caret-down:hover {
+        background: none;
     }
 }
 

@@ -1,4 +1,32 @@
 @include max-width($breakpoint-tablet--small) {
+    .ToggleFlyout,
+    .ButtonGroup {
+        &::before {
+            content: "";
+            opacity: 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            width: 100vw;
+            padding: 0;
+            border: none;
+            background: rgba($color-black, 0.43);
+            z-index: 1;
+            transition: transition(opacity);
+            cursor: pointer;
+            pointer-events: none;
+        }
+
+        &.Open::before {
+            opacity: 1;
+            z-index: 1;
+            pointer-events: initial;
+        }
+    }
+
     .Flyout.Flyout.Flyout,
     .ButtonGroup .Dropdown {
         position: fixed;
@@ -18,11 +46,17 @@
         transform: translateY(50%);
         opacity: 0;
         cursor: pointer;
+        max-height: 80vh;
+        overflow: auto;
         transition:
             visibility 0s linear $animation-duration,
             transform $animation-easing $animation-duration,
             opacity $animation-easing $animation-duration;
         z-index: 100;
+
+        &::before {
+            display: none;
+        }
 
         a {
             line-height: 32px;
@@ -103,24 +137,6 @@
                 opacity: 0.8;
                 text-transform: none;
             }
-        }
-
-        &::before {
-            content: "";
-            opacity: 0;
-            position: absolute;
-            bottom: 100%;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: 100vh;
-            transform: translateY(-100%);
-            padding: 0;
-            border: none;
-            background: rgba($color-black, 0.43);
-            z-index: -10;
-            transition: opacity $animation-easing $animation-duration;
-            cursor: pointer;
         }
 
         &::after {

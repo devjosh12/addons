@@ -84,6 +84,12 @@
     }
 }
 
+// Reset dumb base theme style
+.UserBox .WhoIs, .MeBox .WhoIs {
+    min-height: initial;
+    line-height: inherit;
+}
+
 // Basic table styling
 .CategoryTable,
 .DataTableWrap {

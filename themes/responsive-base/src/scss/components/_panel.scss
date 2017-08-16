@@ -28,6 +28,14 @@
         margin-bottom: $panel-heading-margin-bottom;
         padding-bottom: 3px;
         border-bottom: $border;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .Count {
+            margin-right: 6px;
+            margin-bottom: 4px;
+        }
     }
 
     .ButtonGroup.Multi,
@@ -95,9 +103,8 @@ body.Section-EditProfile .Box,
                 top: 50%;
                 width: 6px;
                 height: 6px;
-                border-bottom: 2px solid $color-black--text;
-                border-left: 2px solid $color-black--text;
-                opacity: 0.9;
+                border-bottom: 2px solid $color-brand-primary;
+                border-left: 2px solid $color-brand-primary;
                 transform: translateY(-100%);
                 z-index: 1;
             }
@@ -118,6 +125,10 @@ body.Section-EditProfile .Box,
         }
     }
 
+    &.BadgeGrid a {
+        width: auto;
+    }
+
     .Active a {
         color: $color-brand-primary;
     }
@@ -133,7 +144,7 @@ body.Section-EditProfile .Box,
         margin-bottom: 6px;
         margin-right: 6px;
         border-radius: $form-border-radius;
-        max-width: 100%;
+        max-width: $frame-panel-width - 18px;;
 
         a,
         &::after {
@@ -150,11 +161,12 @@ body.Section-EditProfile .Box,
             border-top-left-radius: $form-border-radius;
             border-bottom-left-radius: $form-border-radius;
             display: block;
-            max-width: calc(100% - 52px);
+            max-width: $frame-panel-width - 52px - 18px;
         }
 
         &::after {
             content: "";
+            display: block;
             min-width: 52px;
             background: $color-brand-primary;
             border-top-right-radius: $form-border-radius;

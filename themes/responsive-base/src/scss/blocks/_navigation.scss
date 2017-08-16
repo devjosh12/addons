@@ -26,8 +26,8 @@
         max-height: initial !important;
     }
 
-    @include min-width($breakpoint-tablet) {
-        padding: 6px 0;
+    @include min-width {
+        padding: $navigation-vertical-padding 0;
     }
 
     &-buttons {
@@ -157,6 +157,8 @@
         font-size: $navigation-item-font-size;
         font-weight: $navigation-item-font-weight;
         line-height: $navigation-item-height;
+            display: block;
+            width: 100%;
     }
 
     .CategoriesModule-categoryWrap,
@@ -164,13 +166,15 @@
         position: relative;
         display: flex;
         align-items: center;
+        padding: 0;
         height: 52px;
-        padding: $navigation-item-padding-vertical
-            $navigation-item-padding-horizontal;
+        // padding: $navigation-item-padding-vertical
+        //     $navigation-item-padding-horizontal;
 
         a,
         .CategoriesModule-chevron {
             margin: 0 12px;
+            line-height: 52px;
 
             @include min-width {
                 margin: 0;
@@ -216,6 +220,14 @@
             &:hover {
                 background: rgba($color-white, 0.2);
             }
+
+            .CategoriesModule-chevron {
+
+                &::before,
+                &::after {
+                    left: 70%;
+                }
+            }
         }
 
         &-divider {
@@ -240,6 +252,10 @@
             position: relative;
             border-radius: $form-border-radius;
             cursor: pointer;
+            appearance: none;
+            border: none;
+            box-shadow: none;
+            outline: none;
 
             &:hover,
             &:active,
@@ -249,9 +265,11 @@
 
             @include min-width {
                 background: none;
-                width: 32px;
+                // width: 32px;
 
-                &:hover {
+                &:hover,
+                &:active,
+                &:focus {
                     background: none;
                 }
             }
@@ -275,7 +293,10 @@
                     transform $animation-easing $animation-duration;
 
                 @include min-width {
-                    left: 70%;
+                    left: 50%;
+                    display: block;
+                    height: 2px;
+                    line-height: 0;
                 }
             }
 
@@ -306,6 +327,10 @@
             overflow: hidden;
             will-change: max-height;
             transition: max-height $animation-easing $animation-duration;
+
+            @include min-width($breakpoint-tablet) {
+                display: none !important;
+            }
         }
 
         .isDepth-top .CategoriesModule-category {
@@ -318,7 +343,7 @@
                 // z-index: 20;
                 background: $color-white;
                 visibility: hidden;
-                margin-top: 1px;
+                margin-top: 7px;
                 border: $border;
                 border-top: none;
                 z-index: 1;
@@ -350,13 +375,13 @@
                 }
 
                 .CategoriesModule-chevron {
-                    margin-right: 12px;
 
                     &::before,
                     &::after {
                         transition: transition(transform) transition(color);
                         color: $color-black--text;
                         text-shadow: none;
+                        left: 50%;
                     }
 
                     &:hover {
@@ -369,10 +394,6 @@
 
                 .CategoriesModule-category {
                     background: $color-white;
-                }
-
-                > .CategoriesModule-category:last-child .CategoriesModule-categoryWrap::after {
-                    display: none;
                 }
 
                 .CategoriesModule-title {
@@ -389,7 +410,4 @@
             }
         }
     }
-}
-
-.c_Navigation-desktop {
 }

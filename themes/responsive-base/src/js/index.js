@@ -1,9 +1,10 @@
-import {setupHeader} from './header';
-import {fixToggleFlyoutBehaviour} from './overrides';
+import { setupHeader } from "./header";
+import { fixToggleFlyoutBehaviour } from "./overrides";
 
 $(() => {
     setupHeader();
+
     fixToggleFlyoutBehaviour();
 
-    $('select').wrap('<div class="SelectWrapper"></div>')
+    $("select").wrap('<div class="SelectWrapper"></div>');
 });

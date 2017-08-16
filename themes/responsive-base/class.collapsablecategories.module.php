@@ -18,6 +18,8 @@ class CollapsableCategoriesModule extends Gdn_Module {
 
     public $collapseCategories = false;
 
+    public $showAllSubcommunities = false;
+
     /**
      * Override __construct function.
      *
@@ -53,45 +55,73 @@ class CollapsableCategoriesModule extends Gdn_Module {
                 'maxDepth' => $this->endDepth
             ]);
 
-        $categories = $this->getCategoriesWithCorrectedUrls($categories);
+        $categories = $this->adjustCategoriesForSubcommunities($categories);
 
-        if (c('Categories.Accordian.ShowHeading', true)) {
+        if ($this->showAllSubcommunities) {
             $categories = [[
                 'Children' => $categories,
                 'Archived' => 0,
                 'Name' => t('Categories'),
-                'Depth' => 0,
+                'Depth' => 'top',
                 'Url' => Gdn_Theme::link('categories', false, '%url')
             ]];
+        } else {
+            $categories[0]['Name'] = t('Categories');
+            $categories[0]['Url'] = Gdn_Theme::link('categories', false, '%url');
+            $categories[0]['Depth'] = 'top';
         }
 
         return $categories;
     }
 
     /**
-     * Restructure the URLs if subcommunities are enabled
+     * Restructure the URLs if subcommunities are enabled.
      *
      * @param array $categories An array of categories to remap
      *
      * @return array
      */
-    public function getCategoriesWithCorrectedUrls($categories) {
-        $results = [];
+    public function adjustCategoriesForSubcommunities($categories) {
         if (class_exists('SubcommunitiesPlugin')) {
+            $results = [];
+            $currentSubcommunityCategoryID = val('CategoryID', SubcommunityModel::getCurrent());
             foreach ($categories as $category) {
                 $category['Url'] = $this->getSubcommunityUrlForCategory($category);
                 $url = val('Url', $category);
-                if (val('Children', $category)) {
-                    $correctedChildren = $this->getCategoriesWithCorrectedUrls(val('Children', $category));
-                    setValue('Children', $category, $correctedChildren);
-                }
-                $results []= $category;
-            }
-        } else {
-            $results = $categories;
-        }
 
-        return $results;
+                if ($this->showAllSubcommunities
+                    || val('Depth', $category) !== 1
+                    || val('CategoryID', $category) === $currentSubcommunityCategoryID
+                ) {
+                    if (val('Children', $category)) {
+                        $correctedChildren = $this->adjustCategoriesForSubcommunities(val('Children', $category));
+                        setValue('Children', $category, $correctedChildren);
+                    }
+
+                    $results []= $category;
+                }
+            }
+            if (!$this->showAllSubcommunities) {
+                $results = $results;
+            }
+
+            return $results;
+        } else {
+            return $categories;
+        }
+    }
+
+    /**
+     * Filter to just the current subcommunity unless a config setting is set.
+     *
+     * @param array $categories The categories to filter
+     *
+     * @return array The potentially filtered categories
+     */
+    public function filterCurrentSubcommunity($categories) {
+        if (class_exists('SubcommunitiesPlugin')) {
+             $currentSubCommunity = SubcommunityModel::getCurrent();
+        }
     }
 
     /**
